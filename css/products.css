@@ -1,5 +1,5 @@
-.main {box-sizing: border-box; }
-.main__section {
+.main{ box-sizing: border-box; }
+.main__section{
   padding: 2em;
   display: flex;
   flex-flow: column nowrap;
@@ -9,13 +9,14 @@
 }
 .main__div{ text-align: center; }
 .main__h1{}
-.main__p{ 
+.main__p{
   margin: 0;
   opacity: 0.975;
 }
 .main__span{ font-weight: bold; }
+.main__ul{ padding: 0;}
 
-.ul__li {
+.ul__li{
   padding: 0.5em 1em;
   display: flex;
   flex-flow: row nowrap;
@@ -31,9 +32,9 @@
   width: 100%;
   position: relative;
 }
-.ul__img {
-  width: 250px;
-  height: 150px;
+.ul__img{
+  width: 15.625em;
+  height: 9.375em;
   padding: 0.25em;
   border: 1px solid rgb(200, 200, 200);
   border-radius: 0.25em;
@@ -45,8 +46,40 @@
 .ul__span--title{
   font-size: 1.4em;
 }
-.ul__span--vendidos {
+.ul__span--vendidos{
   position: absolute;
   top: 0;
   right: 0;
+}
+
+@media (max-width: 1000px){
+  .main__section{ padding: 2em 0 0 0; }
+  .ul__li{ 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: balance;
+    gap: 0.5em;
+  }
+  .ul__span{ }
+  .ul__span--title{
+    margin-bottom: 0.5rem;
+    font-size: 1.25em;
+  }
+  .ul__span--vendidos{
+    margin-top: 0.5rem;
+    position: static;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer__container{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.5em;
+  }
 }
