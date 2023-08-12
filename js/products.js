@@ -9,18 +9,23 @@ async function recuperarDatosDeAutos () {
   return data.products
 }
 
+
+let delay_entrada = 25
+
 recuperarDatosDeAutos()
   .then(autos => {
     autos.forEach(auto => {
       ul.innerHTML += `
-        <li class="ul__li">
+        <li class="ul__li" style="animation-delay: ${delay_entrada}ms">
           <img class="ul__img" src=${auto.image} alt="Auto">
           <div class="ul__div">
-            <span class="ul__span ul__span--title">${auto.name} - ${auto.cost} ${auto.currency}</span>
+            <span class="ul__span ul__span--title">${auto.name}<span class="ul__span ul__span--precio">${auto.cost} ${auto.currency}</span></span>
             <span class="ul__span">${auto.description}</span>
             <span class="ul__span ul__span--vendidos">${auto.soldCount} vendidos</span>
           </div>
         </li>
       `
+
+      delay_entrada += 25
     })
   })
