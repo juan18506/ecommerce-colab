@@ -80,6 +80,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 0.5em;
+    gap: 1em;
+  }
+  .footer__a{
+    display: block;
   }
 }
