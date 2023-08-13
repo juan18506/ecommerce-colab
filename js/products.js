@@ -28,7 +28,7 @@ function addProductToHtml (product, getDelayEntranceAnimation) {
 
   ul.innerHTML += `
       <li class="ul__li" style="animation-delay: ${delayEntranceAnimation}ms">
-        <img class="ul__img" src=${image} alt=${name}>
+        <img class="ul__img" src=${image} alt="${name}">
         <div class="ul__div">
           <span class="ul__span ul__span--title">${name}<span class="ul__span ul__span--cost">${cost} ${currency}</span></span>
           <span class="ul__span">${description}</span>
