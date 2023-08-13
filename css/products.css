@@ -1,4 +1,4 @@
-:root{ --c-grisclaro: rgb(200, 200, 200) }
+:root{ --c-lightgrey: rgb(200, 200, 200) }
 
 .main__section{
   padding: 2em;
@@ -10,10 +10,7 @@
 }
 .main__div{ text-align: center; }
 .main__h1{}
-.main__p{
-  margin: 0;
-  opacity: 0.975;
-}
+.main__p{ margin: 0; }
 .main__span{ font-weight: bold; }
 .main__ul{ padding: 0;}
 
@@ -26,14 +23,14 @@
   align-items: flex-start;
   gap: 2em;
   position: relative;
-  border: 1px solid var(--c-grisclaro);
+  border: 1px solid var(--c-lightgrey);
   border-radius: 0.25em;
   list-style: none;
   transition: background-color, scale 200ms ease;
   animation: fadeInDown 300ms both;
 }
 .ul__li:hover{
-  --c-grisclaro: rgb(120, 120, 120);
+  --c-lightgrey: rgb(120, 120, 120);
   background-color: lightblue;
   scale: 1.125;
 }
@@ -45,21 +42,18 @@
   width: 15.625em;
   height: 9.375em;
   padding: 0.25em;
-  border: 1px solid var(--c-grisclaro);
+  border: 1px solid var(--c-lightgrey);
   border-radius: 0.25em;
   background-color: #fff;
 }
-.ul__span{
-  display: block;
-  opacity: 0.975;
-}
+.ul__span{ display: block; }
 .ul__span--title{ font-size: 1.4em; }
-.ul__span--precio{ display: inline; }
-.ul__span--precio::before{
+.ul__span--cost{ display: inline; }
+.ul__span--cost::before{
   content: '-';
   margin: 0.2em;
 }
-.ul__span--vendidos{
+.ul__span--soldcount{
   position: absolute;
   top: 0;
   right: 0;
@@ -73,18 +67,14 @@
     align-items: center;
     text-align: center;
     gap: 0.5em;
-  }
-  .ul__li:hover{
-    --c-grisclaro: rgb(200, 200, 200);
-    background-color: inherit;
-    scale: 1;
+    pointer-events: none;
   }
   .ul__span{}
   .ul__span--title{
     margin-bottom: 0.5rem;
     font-size: 1.25em;
   }
-  .ul__span--vendidos{
+  .ul__span--soldcount{
     margin-top: 0.5rem;
     position: static;
   }
@@ -92,8 +82,8 @@
 
 @media (max-width: 575px) {
   .ul__span--title{ font-size: 1.2em; }
-  .ul__span--precio{ display: block; }
-  .ul__span--precio::before{ content: none; }
+  .ul__span--cost{ display: block; }
+  .ul__span--cost::before{ content: none; }
   .footer__container{
     display: flex;
     flex-flow: column-reverse nowrap;
