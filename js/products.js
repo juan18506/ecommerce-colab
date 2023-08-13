@@ -13,21 +13,11 @@ async function getProductsData (productsEndpoint) {
   return productsData
 }
 
-function delayEntranceAnimationClosure () {
-  let delayEntranceAnimation = 0
-
-  return function () {
-    delayEntranceAnimation += 25
-    return delayEntranceAnimation
-  }
-}
-
-function addProductToHtml (product, getDelayEntranceAnimation) {
+function addProductToHtml (product, delayAnimationTimeMs) {
   const { name, description, image, cost, currency, soldCount } = product
-  const delayEntranceAnimation = getDelayEntranceAnimation()
 
   ul.innerHTML += `
-      <li class="ul__li" style="animation-delay: ${delayEntranceAnimation}ms">
+      <li class="ul__li" style="animation-delay: ${delayAnimationTimeMs}ms">
         <img class="ul__img" src=${image} alt="${name}">
         <div class="ul__div">
           <span class="ul__span ul__span--title">${name}<span class="ul__span ul__span--cost">${cost} ${currency}</span></span>
@@ -56,8 +46,11 @@ async function showProducts () {
     return
   }
 
-  const getDelayEntranceAnimation = delayEntranceAnimationClosure()
-  products.forEach(product => addProductToHtml(product, getDelayEntranceAnimation))
+  let delayAnimationTimeMs = 25
+  products.forEach(product => {
+    addProductToHtml(product, delayAnimationTimeMs)
+    delayAnimationTimeMs += 25
+  })
 }
 
 showProducts()

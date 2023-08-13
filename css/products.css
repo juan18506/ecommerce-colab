@@ -12,11 +12,10 @@
 .main__h1{}
 .main__p{ margin: 0; }
 .main__span{ font-weight: bold; }
-.main__ul{ padding: 0;}
+.main__ul{ padding: 0; }
 
 .ul__li{
   padding: 0.5em 1em;
-  margin: 1em 0.5em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -26,13 +25,12 @@
   border: 1px solid var(--c-lightgrey);
   border-radius: 0.25em;
   list-style: none;
-  transition: background-color, scale 200ms ease;
+  transition: background-color 200ms ease;
   animation: fadeInDown 300ms both;
 }
 .ul__li:hover{
-  --c-lightgrey: rgb(120, 120, 120);
-  background-color: lightblue;
-  scale: 1.125;
+  --c-lightgrey: rgb(160, 160, 160);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 .ul__div{
   width: 100%;
@@ -67,7 +65,6 @@
     align-items: center;
     text-align: center;
     gap: 0.5em;
-    pointer-events: none;
   }
   .ul__span{}
   .ul__span--title{
