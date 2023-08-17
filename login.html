@@ -5,84 +5,90 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
-  
+
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/login.css" rel="stylesheet">
+  <script defer src="js\login.js"></script>
 </head>
+
 <body>
   <main>
- <div class="section">
-<div class="container">
-<div class="row full-height justify-content-center">
-<div class="col-12 text-center align-self-center py-5">
-<div class="section pb-5 pt-5 pt-sm-2 text-center">
-<h6 class="mb-0 pb-3"><span>Acceder / Registrarse</span></h6>
-<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
-<label for="reg-log"></label>
-<div class="card-3d-wrap mx-auto">
-<div class="card-3d-wrapper">
-<div class="card-front">
-<div class="center-wrap">
-<div class="section text-center">
-<h4 class="mb-4 pb-3">Acceder</h4>
-<div class="form-group" id="FormAcc">
-<input type="email" id="AccEmail" name="AccEmail" class="form-style" placeholder="Mail" autocomplete="off">
-<i class="input-icon uil uil-at"></i>
-</div>
-<div class="form-group mt-2">
-<input type="password" id="AccContra" name="AccContra" class="form-style" placeholder="Contraseña" id="AccContra" autocomplete="off">
-<i class="input-icon uil uil-lock-alt"></i>
-</div>
-<a href= "#" id="BtnAcc" name="BtnAcc" class= "btn mt-4">Enviar</a>
-<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Olvidaste tu contraseña?</a></p>
-</div>
-</div>
-</div>
-<div class="card-back">
-<div class="center-wrap">
-<div class="section text-center">
-<h4 class="mb-4 pb-3">Registrarse</h4>
-<div class="form-group" id="FormReg">
-<input id="RegNom" name="RegNom" type="text" class="form-style" placeholder="Nombre Completo" autocomplete="off">
-<i class="input-icon uil uil-user"></i>
-</div>
-<div class="form-group mt-2">
-<input id="RegMail" name="RegMail" type="email" class="form-style" placeholder="Tu Email" autocomplete="off">
-<i class="input-icon uil uil-at"></i>
-</div>
-<div class="form-group mt-2">
-<input id="RegContra" name="RegContra" type="password" class="form-style" placeholder="Tu Contraseña" autocomplete="off">
-<i class="input-icon uil uil-lock-alt"></i>
-</div>
-<a href="#" class="btn mt-4" id="BtnReg" name="BtnReg">Enviar</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <section class="sect__banner">
+    </section>
 
-<div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
-  <div id="MsjExito"></div>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center align-self-center py-5">
+            <div class="section pb-5 pt-5 pt-sm-2 text-center">
+              <h6 class="mb-0 pb-3"><span>Acceder / Registrarse</span></h6>
+              <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+              <label for="reg-log"></label>
+              <div class="card-3d-wrap mx-auto">
+                <div class="card-3d-wrapper">
+                  <div class="card-front">
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-3">Acceder</h4>
+                        <div class="form-group" id="FormAcc">
+                          <input type="email" id="AccEmail" name="AccEmail" class="form-style" placeholder="Mail"
+                            autocomplete="off">
+                          <i class="input-icon uil uil-at"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input type="password" id="AccContra" name="AccContra" class="form-style"
+                            placeholder="Contraseña" id="AccContra" autocomplete="off">
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <a href="#" id="BtnAcc" name="BtnAcc" class="btn mt-4">Enviar</a>
+                        <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Olvidaste tu contraseña?</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-back">
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-3">Registrarse</h4>
+                        <div class="form-group" id="FormReg">
+                          <input id="RegNom" name="RegNom" type="text" class="form-style" placeholder="Nombre Completo"
+                            autocomplete="off">
+                          <i class="input-icon uil uil-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input id="RegMail" name="RegMail" type="email" class="form-style" placeholder="Tu Email"
+                            autocomplete="off">
+                          <i class="input-icon uil uil-at"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input id="RegContra" name="RegContra" type="password" class="form-style"
+                            placeholder="Tu Contraseña" autocomplete="off">
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <a href="#" class="btn mt-4" id="BtnReg" name="BtnReg">Enviar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
-  <div id="MsjError"></div>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+      <div id="MsjError"></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
   </main>
   <footer class="text-muted">
     <div class="container">
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
 </body>
-<script src="js\login.js"></script>
+
 </html>
