@@ -1,5 +1,5 @@
 const user = window.localStorage.getItem('user')
-if (!user) window.location.href = '/login.html'
+if (!user) window.location.href = 'login.html'
 
 document.getElementById('autos').addEventListener('click', function () {
   window.localStorage.setItem('catID', 101)
