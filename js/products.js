@@ -1,7 +1,10 @@
 'use strict'
 
-const ul = document.getElementById('products')
-const spanCategory = document.getElementById('category')
+const productList = document.getElementById('products')
+const categoryText = document.getElementById('category')
+const productsEndpoint = getProductsEndpoint()
+getProductsData(productsEndpoint)
+  .then(productsData => showProducts(productsData))
 
 function getProductsEndpoint () {
   const productsEndpoint = `${PRODUCTS_URL}101${EXT_TYPE}`
@@ -16,7 +19,7 @@ async function getProductsData (productsEndpoint) {
 function addProductToHtml (product, delayAnimationTimeMs) {
   const { name, description, image, cost, currency, soldCount } = product
 
-  ul.innerHTML += `
+  productList.innerHTML += `
       <li class="ul__li" style="animation-delay: ${delayAnimationTimeMs}ms">
         <img class="ul__img" src=${image} alt="${name}">
         <div class="ul__div">
@@ -28,21 +31,19 @@ function addProductToHtml (product, delayAnimationTimeMs) {
     `
 }
 
-async function showProducts () {
-  const productsEndpoint = getProductsEndpoint()
-  const productsData = await getProductsData(productsEndpoint)
+async function showProducts (productsData) {
   const { status, data } = productsData
 
   if (status === 'error') {
-    ul.innerHTML += `<li class="ul__li">${data}</li>`
+    productList.innerHTML += `<li class="ul__li">${data}</li>`
     return
   }
 
   const { catName, products } = data
-  spanCategory.innerHTML += catName
+  categoryText.innerHTML += catName
 
   if (products.length === 0) {
-    ul.innerHTML += '<li class="ul__li">No hay productos de esta categoría</li>'
+    productList.innerHTML += '<li class="ul__li">No hay productos de esta categoría</li>'
     return
   }
 
@@ -52,5 +53,3 @@ async function showProducts () {
     delayAnimationTimeMs += 25
   })
 }
-
-showProducts()
