@@ -40,7 +40,7 @@ async function showProducts (productsData) {
   }
 
   const { catName, products } = data
-  categoryText.innerHTML += catName
+  categoryText.innerHTML = catName
 
   if (products.length === 0) {
     productList.innerHTML += '<li class="ul__li">No hay productos de esta categoría</li>'
