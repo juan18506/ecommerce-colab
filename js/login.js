@@ -13,6 +13,8 @@ const regContra = document.getElementById('RegContra')
 const accEmail = document.getElementById('AccEmail')
 const accContra = document.getElementById('AccContra')
 
+const patronEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
+
 function showAlertError () {
   alertDanger.classList.add('show')
 }
@@ -30,7 +32,7 @@ btnReg.addEventListener('click', () => {
     return
   }
 
-  if (!(/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/.test(regMail.value))) {
+  if (!(patronEmail.test(regMail.value))) {
     msjError.innerHTML = '<p>El dato ingresado no es un mail válido</p>'
     showAlertError()
     return
@@ -46,7 +48,6 @@ btnAcc.addEventListener('click', () => {
     return
   }
 
-  const patronEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
   if (!(patronEmail.test(accEmail.value))) {
     msjError.innerHTML = '<p>El dato ingresado no es un mail válido</p>'
     showAlertError()
