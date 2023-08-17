@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
 const alertSuccess = document.getElementById("alert-success");
 const alertDanger = document.getElementById("alert-danger");
 const closeBtns = document.querySelectorAll('.btn-close');
+
+
+const msjError = document.getElementById('MsjError');
+const msjExito = document.getElementById('MsjExito');
+
+
 const btnReg = document.getElementById('BtnReg');
 const btnAcc = document.getElementById('BtnAcc');
 
@@ -16,9 +22,6 @@ const regContra = document.getElementById('RegContra');
 const accEmail = document.getElementById('AccEmail');
 const accContra = document.getElementById('AccContra');
 
-const msjError = document.getElementById('MsjError');
-const msjExito = document.getElementById('MsjExito');
-
 function showAlertSuccess() {
   alertSuccess.classList.add("show");
   alertDanger.classList.remove("show");
@@ -30,7 +33,7 @@ function showAlertError() {
 }
 
 function Acceder(){
-    location.href = 'index.html';
+    window.location.href= 'index.html';
 }
 
 btnReg.addEventListener('click', () => {
