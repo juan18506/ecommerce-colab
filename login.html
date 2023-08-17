@@ -28,14 +28,14 @@
 <div class="section text-center">
 <h4 class="mb-4 pb-3">Acceder</h4>
 <div class="form-group">
-<input type="email" name="accemail" class="form-style" placeholder="Mail" id="accemail" autocomplete="off">
+<input type="email" id="AccEmail" name="AccEmail" class="form-style" placeholder="Mail" autocomplete="off">
 <i class="input-icon uil uil-at"></i>
 </div>
 <div class="form-group mt-2">
-<input type="password" name="accpass" class="form-style" placeholder="Contraseña" id="accpass" autocomplete="off">
+<input type="password" id="AccContra" name="AccContra" class="form-style" placeholder="Contraseña" id="AccContra" autocomplete="off">
 <i class="input-icon uil uil-lock-alt"></i>
 </div>
-<a href="#" class="btn mt-4">Enviar</a>
+<a href= "#" id="BtnAcc" name="BtnAcc" class= "btn mt-4">Enviar</a>
 <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Olvidaste tu contraseña?</a></p>
 </div>
 </div>
@@ -45,18 +45,18 @@
 <div class="section text-center">
 <h4 class="mb-4 pb-3">Registrarse</h4>
 <div class="form-group">
-<input type="text" name="RegNom" class="form-style" placeholder="Nombre Completo" id="RegNom" autocomplete="off">
+<input id="RegNom" name="RegNom" type="text" class="form-style" placeholder="Nombre Completo" autocomplete="off">
 <i class="input-icon uil uil-user"></i>
 </div>
 <div class="form-group mt-2">
-<input type="email" name="RegMail" class="form-style" placeholder="Tu Email" id="RegMail" autocomplete="off">
+<input id="RegMail" name="RegMail" type="email" class="form-style" placeholder="Tu Email" autocomplete="off">
 <i class="input-icon uil uil-at"></i>
 </div>
 <div class="form-group mt-2">
-<input type="password" name="RegContra" class="form-style" placeholder="Tu Contraseña" id="RegContra" autocomplete="off">
+<input id="RegContra" name="RegContra" type="password" class="form-style" placeholder="Tu Contraseña" autocomplete="off">
 <i class="input-icon uil uil-lock-alt"></i>
 </div>
-<a href="#" class="btn mt-4">Enviar</a>
+<a href="#" class="btn mt-4" id="BtnReg" name="BtnReg">Enviar</a>
 </div>
 </div>
 </div>
@@ -66,17 +66,23 @@
 </div>
 </div>
 </div>
+</div>
+
+<div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+  <div id="MsjExito"></div>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+  <div id="MsjError"></div>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
   </main>
   <footer class="text-muted">
     <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  <script src="js/login.js"></script>
 </body>
-
+<script src="js\login.js"></script>
 </html>
