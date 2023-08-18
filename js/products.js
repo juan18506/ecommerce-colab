@@ -31,7 +31,7 @@ function addProductToHtml (product, delayAnimationTimeMs) {
     `
 }
 
-async function showProducts (productsData) {
+function showProducts (productsData) {
   const { status, data } = productsData
 
   if (status === 'error') {
