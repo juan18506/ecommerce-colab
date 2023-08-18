@@ -16,6 +16,6 @@ document.getElementById('muebles').addEventListener('click', function () {
   window.location = 'products.html'
 })
 
-document.getElementById('cerrar-sesion').addEventListener('click', function () {
+document.getElementById('logout').addEventListener('click', function () {
   window.localStorage.removeItem('user')
 })

@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-.sect__banner {
+.banner {
   width: 56.25em;
   height: 18.75em;
   margin: 1.5em auto;
@@ -23,9 +23,19 @@ body {
 }
 
 .alert-danger {
+  padding: 1em 1.5em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
   position: absolute;
   top: 31%;
   left: 50%;
+}
+
+.btn-close {
+  position: static !important;
+  padding: 0.5em !important;
 }
 
 #MsjError {
@@ -114,7 +124,6 @@ h6 span {
   border-radius: 50%;
   color: #f09100;
   background-color: white;
-  font-family: 'unicons';
   content: ' ';
   z-index: 20;
   top: -10px;
