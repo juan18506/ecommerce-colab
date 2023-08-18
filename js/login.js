@@ -25,6 +25,12 @@ btnReg.addEventListener('click', () => {
     showAlertError()
     return
   }
+  
+  if (!(patronEmail.test(regMail.value))) {
+    msjError.innerHTML = '<p>El dato ingresado no es un mail válido</p>'
+    showAlertError()
+    return
+  }
 
   if (regContra.value.length < 6) {
     msjError.innerHTML = '<p>La contraseña de registro es muy corta</p>'
@@ -32,13 +38,15 @@ btnReg.addEventListener('click', () => {
     return
   }
 
-  if (!(patronEmail.test(regMail.value))) {
-    msjError.innerHTML = '<p>El dato ingresado no es un mail válido</p>'
-    showAlertError()
-    return
-  }
+  const changeButton = document.querySelector('[for="reg-log"]')
+  changeButton.click()
 
-  window.location.href = 'index.html'
+  accEmail.value = regMail.value
+  accContra.value = regContra.value
+
+  regMail.value = regMail.defaultValue 
+  regNom.value = regNom.defaultValue
+  regContra.value = regContra.defaultValue
 })
 
 btnAcc.addEventListener('click', () => {
@@ -54,7 +62,7 @@ btnAcc.addEventListener('click', () => {
     return
   }
 
-  window.localStorage.setItem('user', 'usuario')
+  window.localStorage.setItem('user', accEmail.value)
   window.location.href = 'index.html'
 })
 

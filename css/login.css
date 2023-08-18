@@ -13,6 +13,7 @@ body {
 }
 
 .banner {
+.banner {
   width: 56.25em;
   height: 18.75em;
   margin: 1.5em auto;
@@ -28,15 +29,19 @@ body {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
+  padding: 1em 1.5em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
   position: absolute;
   top: 31%;
   left: 50%;
 }
 
-
 .btn-close {
-  padding: 0.5em !important;
   position: static !important;
+  padding: 0.5em !important;
 }
 
 #MsjError {
@@ -46,7 +51,7 @@ body {
   align-items: center;
 }
 
-#MsjError>p {
+#MsjError > p {
   margin: 0;
 }
 
@@ -121,8 +126,11 @@ h6 span {
   content: ' ';
   width: 36px;
   height: 36px;
-  display: block;
-  position: absolute;
+  border-radius: 50%;
+  color: #f09100;
+  background-color: white;
+  content: ' ';
+  z-index: 20;
   top: -10px;
   left: -10px;
   z-index: 20;
