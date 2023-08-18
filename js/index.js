@@ -15,3 +15,7 @@ document.getElementById('muebles').addEventListener('click', function () {
   window.localStorage.setItem('catID', 103)
   window.location = 'products.html'
 })
+
+document.getElementById('cerrar-sesion').addEventListener('click', function () {
+  window.localStorage.removeItem('user')
+})

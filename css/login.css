@@ -28,6 +28,17 @@ body {
   left: 50%;
 }
 
+#MsjError {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#MsjError > p {
+  margin: 0;
+}
+
 a {
   cursor: pointer;
   transition: all 200ms linear;
