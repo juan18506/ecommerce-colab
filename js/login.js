@@ -62,7 +62,7 @@ btnAcc.addEventListener('click', () => {
     return
   }
 
-  window.localStorage.setItem('user', 'usuario')
+  window.localStorage.setItem('user', accEmail.value)
   window.location.href = 'index.html'
 })
 
