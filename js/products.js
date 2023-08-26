@@ -7,7 +7,8 @@ getProductsData(productsEndpoint)
   .then(productsData => showProducts(productsData))
 
 function getProductsEndpoint () {
-  const productsEndpoint = `${PRODUCTS_URL}101${EXT_TYPE}`
+  const catID = window.localStorage.getItem('catID')
+  const productsEndpoint = `${PRODUCTS_URL}${catID}${EXT_TYPE}`
   return productsEndpoint
 }
 
@@ -47,8 +48,11 @@ function showProducts (productsData) {
     return
   }
 
+  console.log(products);
+  const pepe = sort(ORDER_ASC_BY_NAME, products, true)
+
   let delayAnimationTimeMs = 25
-  products.forEach(product => {
+  pepe.forEach(product => {
     addProductToHtml(product, delayAnimationTimeMs)
     delayAnimationTimeMs += 25
   })
