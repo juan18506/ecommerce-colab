@@ -35,15 +35,15 @@ function sort (criteria, array, product) {
   return sortedArray
 }
 
-function showList () {
+function showList (products) {
   let htmlContentToAppend = ''
+
   for (let i = 0; i < currentCategoriesArray.length; i++) {
     const category = currentCategoriesArray[i]
 
-    if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))) {
+    if (((minCount == undefined) || parseInt(category.productCount) >= minCount) && ((maxCount == undefined) || parseInt(category.productCount) <= maxCount)) {
       htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+            <li ${products ? 'hola' : onclick=`setCatID(${category.id})`} class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
@@ -56,7 +56,7 @@ function showList () {
                         <p class="mb-1">${category.description}</p>
                     </div>
                 </div>
-            </div>
+            </li>
             `
     }
 
