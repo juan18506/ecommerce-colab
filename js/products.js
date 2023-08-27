@@ -21,15 +21,15 @@ function addProductToHtml (product, delayAnimationTimeMs) {
   const { name, description, image, cost, currency, soldCount } = product
 
   productList.innerHTML += `
-      <li class="ul__li" style="animation-delay: ${delayAnimationTimeMs}ms">
-        <img class="ul__img" src=${image} alt="${name}">
-        <div class="ul__div">
-          <span class="ul__span ul__span--title">${name}<span class="ul__span ul__span--cost">${cost} ${currency}</span></span>
-          <span class="ul__span">${description}</span>
-          <span class="ul__span ul__span--soldcount">${soldCount} vendidos</span>
-        </div>
-      </li>
-    `
+    <li class="ul__li" style="animation-delay: ${delayAnimationTimeMs}ms">
+      <img class="ul__img" src=${image} alt="${name}">
+      <div class="ul__div">
+        <span class="ul__span ul__span--title">${name}<span class="ul__span ul__span--cost">${cost} ${currency}</span></span>
+        <span class="ul__span">${description}</span>
+        <span class="ul__span ul__span--soldcount">${soldCount} vendidos</span>
+      </div>
+    </li>
+  `
 }
 
 function showProducts (productsData) {
@@ -41,18 +41,17 @@ function showProducts (productsData) {
   }
 
   const { catName, products } = data
-  categoryText.innerHTML = catName
+  categoryText.innerText = catName
 
   if (products.length === 0) {
     productList.innerHTML += '<li class="ul__li">No hay productos de esta categoría</li>'
     return
   }
 
-  console.log(products);
-  const pepe = sort(ORDER_ASC_BY_NAME, products, true)
+  const sortedProducts = sort(ORDER_ASC_BY_NAME, products)
 
   let delayAnimationTimeMs = 25
-  pepe.forEach(product => {
+  sortedProducts.forEach((product) => {
     addProductToHtml(product, delayAnimationTimeMs)
     delayAnimationTimeMs += 25
   })
