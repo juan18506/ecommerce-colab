@@ -3,6 +3,7 @@
 const productList = document.getElementById('products')
 const categoryText = document.getElementById('category')
 const productsEndpoint = getProductsEndpoint()
+let currentProductsArray
 getProductsData(productsEndpoint)
   .then(productsData => showProducts(productsData))
 
@@ -48,7 +49,20 @@ function showProducts (productsData) {
     return
   }
 
-  const sortedProducts = sort(ORDER_ASC_BY_NAME, products)
+  currentProductsArray = products
+
+  let delayAnimationTimeMs = 25
+  products.forEach((product) => {
+    addProductToHtml(product, delayAnimationTimeMs)
+    delayAnimationTimeMs += 25
+  })
+}
+
+function sortAndShowProducts(criteria) {
+  if (!currentProductsArray) return
+
+  productList.innerHTML = ''
+  const sortedProducts = sort(criteria, currentProductsArray)
 
   let delayAnimationTimeMs = 25
   sortedProducts.forEach((product) => {
