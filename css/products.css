@@ -10,6 +10,10 @@
   gap: 2em;
 }
 
+.filters {
+  width: 100%;
+}
+
 .main__div { 
   text-align: center; 
 }

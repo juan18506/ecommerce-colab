@@ -39,3 +39,9 @@ const getJSONData = function (url) {
       return result
     })
 }
+
+const user = window.localStorage.getItem('user');
+if (!user) window.location.href = 'login.html'
+
+let profile = document.getElementById('profile');
+profile.innerHTML = user
