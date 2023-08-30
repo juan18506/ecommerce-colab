@@ -16,6 +16,5 @@ document.getElementById('muebles').addEventListener('click', function () {
   window.location = 'products.html'
 })
 
-document.getElementById('logout').addEventListener('click', function () {
-  window.localStorage.removeItem('user')
-})
+let profile = document.getElementById('profile')
+profile.innerHTML = user
