@@ -1,6 +1,7 @@
-:root{ --c-lightgrey: rgb(200, 200, 200) }
+:root { 
+  --c-lightgrey: rgb(200, 200, 200) }
 
-.main__section{
+.main__section {
   padding: 2em;
   display: flex;
   flex-flow: column nowrap;
@@ -8,79 +9,124 @@
   align-items: center;
   gap: 2em;
 }
-.main__div{ text-align: center; }
-.main__h1{}
-.main__p{ margin: 0; }
-.main__span{ font-weight: bold; }
-.main__ul{ padding: 0; }
 
-.ul__li{
-  padding: 0.5em 1em;
+.main__div { 
+  text-align: center; 
+}
+
+.main__h1 {
+  margin-bottom: .5rem;
+}
+
+.main__p { 
+  margin: 0; 
+}
+
+.main__span { 
+  font-weight: bold; 
+}
+
+.main__ul { 
+  padding: 0; 
+}
+
+.ul__li {
+  padding: 1.5em 1em;
+  margin-bottom: 1em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 2em;
   border: 1px solid var(--c-lightgrey);
-  border-radius: 0.25em;
+  border-radius: 25px;
   list-style: none;
   transition: background-color 200ms ease;
   animation: fadeInDown 300ms both;
 }
-.ul__li:hover{
+.ul__li:hover {
   --c-lightgrey: rgb(160, 160, 160);
   background-color: rgba(0, 0, 0, 0.05);
 }
-.ul__div{
+
+.ul__div {
   width: 100%;
   position: relative;
 }
-.ul__img{
+
+.ul__img {
   width: 15.625em;
   height: 9.375em;
-  padding: 0.25em;
-  border: 1px solid var(--c-lightgrey);
-  border-radius: 0.25em;
-  background-color: #fff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 15px;
+  transition: all 300ms;
 }
-.ul__span{ display: block; }
-.ul__span--title{ font-size: 1.4em; }
-.ul__span--cost{ display: inline; }
-.ul__span--cost::before{
+
+.ul__img:hover {
+  scale: 1.1;
+}
+
+.ul__span { 
+  display: block; 
+}
+
+.ul__span--title { 
+  font-size: 1.4em; 
+}
+
+.ul__span--cost { 
+  display: inline; 
+}
+
+.ul__span--cost::before {
   content: '-';
   margin: 0.2em;
 }
-.ul__span--soldcount{
+
+.ul__span--soldcount {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-@media (max-width: 1000px){
-  .main__section{ padding: 2em 0 0 0; }
-  .ul__li{ 
+@media (max-width: 1000px) {
+  .main__section { 
+    padding: 2em 0 0 0; 
+  }
+
+  .ul__li { 
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 0.5em;
   }
-  .ul__span{}
-  .ul__span--title{
+  
+  .ul__span--title {
     margin-bottom: 0.5rem;
     font-size: 1.25em;
   }
-  .ul__span--soldcount{
+
+  .ul__span--soldcount {
     margin-top: 0.5rem;
     position: static;
   }
 }
 
 @media (max-width: 575px) {
-  .ul__span--title{ font-size: 1.2em; }
-  .ul__span--cost{ display: block; }
-  .ul__span--cost::before{ content: none; }
-  .footer__container{
+  .ul__span--title { 
+    font-size: 1.2em; 
+  }
+  
+  .ul__span--cost { 
+    display: block; 
+  }
+  
+  .ul__span--cost::before { 
+    content: none; 
+  }
+  
+  .footer__container {
     display: flex;
     flex-flow: column-reverse nowrap;
     justify-content: center;
@@ -88,7 +134,10 @@
     text-align: center;
     gap: 1em;
   }
-  .footer__a{ display: block; }
+
+  .footer__a { 
+    display: block; 
+  }
 }
 
 @keyframes fadeInDown {
