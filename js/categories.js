@@ -43,7 +43,6 @@ document.getElementById('rangeFilterCount').addEventListener('click', function (
   maxCount = rangeFilterCountMax.value
 
   minCount = minCount && parseInt(minCount) >= 0 ? parseInt(minCount) : 0
-
   maxCount = maxCount && parseInt(maxCount) >= 0 ? parseInt(maxCount) : Infinity
 
   showCategoriesList()
@@ -56,7 +55,7 @@ function setCatID(id) {
 
 function sortAndShowCategories(sortCriteria, categoriesArray) {
   currentSortCriteria = categoriesArray ? categoriesArray : sortCriteria
-  currentCategoriesArray = sort(currentSortCriteria, currentCategoriesArray)
+  currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray)
   // Muestro las categorías ordenadas
   showCategoriesList()
 }

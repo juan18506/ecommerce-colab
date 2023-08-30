@@ -2,10 +2,37 @@
 
 const productList = document.getElementById('products')
 const categoryText = document.getElementById('category')
+const rangeFilterCountMin = document.getElementById('rangeFilterCountMin')
+const rangeFilterCountMax = document.getElementById('rangeFilterCountMax')
 const productsEndpoint = getProductsEndpoint()
 let currentProductsArray
+let minCost = 0
+let maxCost = Infinity
+
 getProductsData(productsEndpoint)
   .then(productsData => showProducts(productsData))
+
+document.getElementById('sortAsc').addEventListener('click', () => sortAndShowProducts(ORDER_ASC_BY_COST))
+document.getElementById('sortDesc').addEventListener('click', () => sortAndShowProducts(ORDER_DESC_BY_COST))
+document.getElementById('sortByCount').addEventListener('click', () => sortAndShowProducts(ORDER_BY_PROD_COUNT))
+document.getElementById('clearRangeFilter').addEventListener('click', function () {
+  rangeFilterCountMin.value = ''
+  rangeFilterCountMax.value = ''
+
+  minCost = 0
+  maxCost = Infinity
+
+  sortAndShowProducts(ORDER_BY_FILTER)
+})
+document.getElementById('rangeFilterCount').addEventListener('click', function () {
+  minCost = rangeFilterCountMin.value
+  maxCost = rangeFilterCountMax.value
+
+  minCost = minCost && parseInt(minCost) >= 0 ? parseInt(minCost) : 0
+  maxCost = maxCost && parseInt(maxCost) >= 0 ? parseInt(maxCost) : Infinity
+
+  sortAndShowProducts(ORDER_BY_FILTER)
+})
 
 function getProductsEndpoint () {
   const catID = window.localStorage.getItem('catID')
@@ -20,7 +47,8 @@ async function getProductsData (productsEndpoint) {
 
 function addProductToHtml (product, delayAnimationTimeMs) {
   const { name, description, image, cost, currency, soldCount } = product
-
+  
+  if (parseInt(cost) < minCost || parseInt(cost) > maxCost) return
   productList.innerHTML += `
     <li class="ul__li" style="animation-delay: ${delayAnimationTimeMs}ms">
       <img class="ul__img" src=${image} alt="${name}">
@@ -61,11 +89,11 @@ function sortAndShowProducts(criteria) {
   if (!currentProductsArray) return
 
   productList.innerHTML = ''
-  const sortedProducts = sort(criteria, currentProductsArray)
+  const sortedProducts = sortProducts(criteria, currentProductsArray)
 
   let delayAnimationTimeMs = 25
   sortedProducts.forEach((product) => {
     addProductToHtml(product, delayAnimationTimeMs)
-    delayAnimationTimeMs += 25
+    delayAnimationTimeMs += 25 
   })
 }
