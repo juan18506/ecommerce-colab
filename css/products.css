@@ -1,7 +1,5 @@
-:root { 
-  --c-lightgrey: rgb(200, 200, 200) }
-
-.main__section {
+:root { --c-lightgrey: rgb(200, 200, 200) }
+.main__div {
   padding: 2em;
   display: flex;
   flex-flow: column nowrap;
@@ -9,31 +7,35 @@
   align-items: center;
   gap: 2em;
 }
-
-.filters {
-  width: 100%;
+.main__header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1em;
+  margin-bottom: 2em;
 }
-
-.main__div { 
-  text-align: center; 
+.main__orders > input {
+  display: none;
+  padding: 0.5em 1.5em;
 }
-
-.main__h1 {
-  margin-bottom: .5rem;
+.main__prices {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1em;
 }
-
-.main__p { 
-  margin: 0; 
+.main__prices > input { max-width: 10em; }
+.main__ranges, .main__buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1em;
 }
-
-.main__span { 
-  font-weight: bold; 
-}
-
-.main__ul { 
-  padding: 0; 
-}
-
+.main__ranges > input { max-width: 10em; }
+.main__section { text-align: center; }
+.main__h1 { margin-bottom: .5rem;}
+.main__p { margin: 0; }
+.main__span { font-weight: bold; }
+.main__ul { padding: 0; }
 .ul__li {
   padding: 1.5em 1em;
   margin-bottom: 1em;
@@ -52,12 +54,10 @@
   --c-lightgrey: rgb(160, 160, 160);
   background-color: rgba(0, 0, 0, 0.05);
 }
-
 .ul__div {
   width: 100%;
   position: relative;
 }
-
 .ul__img {
   width: 15.625em;
   height: 9.375em;
@@ -65,28 +65,14 @@
   border-radius: 15px;
   transition: all 300ms;
 }
-
-.ul__img:hover {
-  scale: 1.1;
-}
-
-.ul__span { 
-  display: block; 
-}
-
-.ul__span--title { 
-  font-size: 1.4em; 
-}
-
-.ul__span--cost { 
-  display: inline; 
-}
-
+.ul__img:hover { scale: 1.1; }
+.ul__span { display: block; }
+.ul__span--title { font-size: 1.4em; }
+.ul__span--cost { display: inline; }
 .ul__span--cost::before {
   content: '-';
   margin: 0.2em;
 }
-
 .ul__span--soldcount {
   position: absolute;
   top: 0;
@@ -94,10 +80,7 @@
 }
 
 @media (max-width: 1000px) {
-  .main__section { 
-    padding: 2em 0 0 0; 
-  }
-
+  .main__section { padding: 2em 0 0 0; }
   .ul__li { 
     flex-direction: column;
     justify-content: center;
@@ -105,31 +88,24 @@
     text-align: center;
     gap: 0.5em;
   }
-  
   .ul__span--title {
     margin-bottom: 0.5rem;
     font-size: 1.25em;
   }
-
   .ul__span--soldcount {
     margin-top: 0.5rem;
     position: static;
   }
 }
 
+@media (max-width: 767px) { 
+  .main__price { display: none; }
+}
+
 @media (max-width: 575px) {
-  .ul__span--title { 
-    font-size: 1.2em; 
-  }
-  
-  .ul__span--cost { 
-    display: block; 
-  }
-  
-  .ul__span--cost::before { 
-    content: none; 
-  }
-  
+  .ul__span--title { font-size: 1.2em; }
+  .ul__span--cost { display: block; }
+  .ul__span--cost::before { content: none; }
   .footer__container {
     display: flex;
     flex-flow: column-reverse nowrap;
@@ -138,10 +114,14 @@
     text-align: center;
     gap: 1em;
   }
-
-  .footer__a { 
-    display: block; 
+  .footer__a { display: block; }
+  .main__header { align-items: center; }
+  .main__orders > label, .main__buttons > button { padding: 0.5em 1.5em; }
+  .main__prices {
+    flex-direction: column;
+    align-items: center;
   }
+  .main__ranges > input::placeholder { text-align: center; }
 }
 
 @keyframes fadeInDown {
