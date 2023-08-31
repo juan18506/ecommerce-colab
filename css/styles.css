@@ -188,3 +188,20 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.dropdown-menu {
+  background-color: #212529;
+  border-top: 0px;
+}
+
+.dropdown-item {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+#profile {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+#profile:hover {
+  color: rgba(255, 255, 255, 0.75) ;
+}

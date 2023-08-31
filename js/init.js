@@ -45,3 +45,7 @@ if (!user) window.location.href = 'login.html'
 
 let profile = document.getElementById('profile');
 profile.innerHTML = user
+
+document.getElementById('logout').addEventListener('click', function () {
+  window.localStorage.removeItem('user')
+})
