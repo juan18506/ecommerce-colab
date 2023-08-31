@@ -15,11 +15,13 @@
   gap: 1em;
   margin-bottom: 2em;
 }
-.main__orders > input {
-  display: none;
-  padding: 0.5em 1.5em;
+.main__orders { 
+  width: 100%;
+  justify-content: flex-end; 
 }
-.main__orders, .main__prices, .main__buttons, .main__ranges {
+.main__orders input { display: none; }
+.main__orders input[type="search"] { display: block; max-width: 18.80em; }
+.main__orders, .main__prices, .main__buttons, .main__ranges, .main__radios {
   display: flex;
   flex-flow: row nowrap;
   gap: 1em;
@@ -44,6 +46,7 @@
   transition: background-color 200ms ease;
   animation: fadeInDown 300ms both;
 }
+.ul__li--cat:hover { cursor: pointer; }
 .ul__li:hover {
   --c-lightgrey: rgb(160, 160, 160);
   background-color: rgba(0, 0, 0, 0.05);
@@ -90,19 +93,26 @@
     margin-top: 0.5rem;
     position: static;
   }
+  .main__orders { justify-content: center; align-items: center; }
+  .orders { justify-content: flex-end; }
 }
 
 @media (max-width: 767px) { 
   .main__price { display: none; }
-}
-
-@media (max-width: 575px) {
+  .main__orders { flex-direction: column-reverse; }
   .main__header { align-items: center; }
   .main__orders > label, .main__buttons > button { padding: 0.5em 1.5em; }
   .main__prices {
     flex-direction: column;
     align-items: center;
   }
+  .orders { 
+    flex-direction: row; 
+    justify-content: center; 
+  }
+}
+
+@media (max-width: 575px) {
   .main__ranges > input::placeholder { text-align: center; }
   .ul__span--title { font-size: 1.2em; }
   .ul__span--cost { display: block; }

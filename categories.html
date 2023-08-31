@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/prod-cat.css" rel="stylesheet">
   <script defer src="js/bootstrap.bundle.min.js"></script>
   <script defer src="js/init.js"></script>
   <script defer src="js/sort.js"></script>
@@ -17,8 +18,8 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <nav class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,58 +49,53 @@
           </li>
         </ul>
       </div>
-    </div>
-  </nav>
-  <main class="pb-5">
-    <div class="text-center p-4">
-      <h2>Categorías</h2>
-      <p class="lead">Verás aquí todas las categorías del sitio.</p>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col text-end">
-          <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
-            <input type="radio" class="btn-check" name="options" id="sortAsc">
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="main__div">
+      <section class="main__section">
+        <h1 class="main__h1">Categorías</h1>
+        <p class="main__p">Verás aquí todas las categorías del sitio.</p>
+      </section>
+
+      <section class="container">
+        <header class="main__header">
+          <div class="main__orders orders">
+            <input type="radio" name="options" id="sortAsc">
             <label class="btn btn-light" for="sortAsc">A-Z</label>
             <input type="radio" class="btn-check" name="options" id="sortDesc">
-            <label class="btn btn-light" for="sortDesc">Z-A</label>
+            <label class="btn btn-light" for="sortDesc">Z-A</label>                
             <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
             <label class="btn btn-light" for="sortByCount"><i class="fas fa-sort-amount-down mr-1"></i></label>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
-          <div class="row container p-0 m-0">
-            <div class="col">
-              <p class="font-weight-normal text-end my-2">Cant.</p>
+
+          <div class="main__prices">
+            <div class="main__ranges">
+              <p class="font-weight-normal text-end my-2 main__price">Cant.</p>
+              <input class="form-control" type="number" placeholder="Cant. mín." id="rangeFilterCountMin">
+              <input class="form-control" type="number" placeholder="Cant. máx." id="rangeFilterCountMax">
             </div>
-            <div class="col">
-              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
-            </div>
-            <div class="col">
-              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
-            </div>
-            <div class="col-3 p-0">
-              <div class="btn-group" role="group">
-                <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-              </div>
+            <div class="main__buttons">
+              <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+              <button class="btn btn-light btn-block" id="clearRangeFilter">Limpiar</button>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <ul class="list-group" id="cat-list-container"></ul>
-      </div>
+        </header>
+
+        <section class="productos">
+          <ul class="main__ul ul" id="cat-list-container"></ul>
+        </section>
+      </section>
     </div>
   </main>
+
   <footer class="text-muted">
-    <div class="container">
+    <div class="footer__container container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p class="footer__p">Este sitio forma parte de <a class="footer__a" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
   <div id="spinner-wrapper">

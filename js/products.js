@@ -4,8 +4,10 @@ const productList = document.getElementById('products')
 const categoryText = document.getElementById('category')
 const rangeFilterCountMin = document.getElementById('rangeFilterCountMin')
 const rangeFilterCountMax = document.getElementById('rangeFilterCountMax')
+const inputSearch = document.getElementById('search')
 const productsEndpoint = getProductsEndpoint()
-let currentProductsArray
+let currentProductsArray = null
+let filteredArray = null
 let minCost = 0
 let maxCost = Infinity
 
@@ -18,6 +20,8 @@ document.getElementById('sortByCount').addEventListener('click', () => sortAndSh
 document.getElementById('clearRangeFilter').addEventListener('click', function () {
   rangeFilterCountMin.value = ''
   rangeFilterCountMax.value = ''
+  inputSearch.value = ''
+  filteredArray = null
 
   minCost = 0
   maxCost = Infinity
@@ -30,6 +34,20 @@ document.getElementById('rangeFilterCount').addEventListener('click', function (
 
   minCost = minCost && parseInt(minCost) >= 0 ? parseInt(minCost) : 0
   maxCost = maxCost && parseInt(maxCost) >= 0 ? parseInt(maxCost) : Infinity
+
+  sortAndShowProducts(ORDER_BY_FILTER)
+})
+inputSearch.addEventListener('input', () => {
+  if (!currentProductsArray) return
+  const query = inputSearch.value.toLowerCase()
+  
+  filteredArray = currentProductsArray.filter((el) => {
+    let { name, description } = el
+    name = name.toLowerCase()
+    description = description.toLowerCase()
+
+    return name.includes(query) || description.includes(query)
+  })
 
   sortAndShowProducts(ORDER_BY_FILTER)
 })
@@ -90,7 +108,7 @@ function sortAndShowProducts(criteria) {
   if (!currentProductsArray) return
 
   productList.innerHTML = ''
-  const sortedProducts = sortProducts(criteria, currentProductsArray)
+  const sortedProducts = filteredArray ? sortProducts(criteria, filteredArray) : sortProducts(criteria, currentProductsArray)
 
   let delayAnimationTimeMs = 25
   sortedProducts.forEach((product) => {

@@ -65,24 +65,21 @@ function showCategoriesList() {
 
   currentCategoriesArray.forEach((category) => {
     const { id, name, description, imgSrc, productCount } = category
+    let delayAnimationTimeMs = 25
 
     if (parseInt(productCount) >= minCount && parseInt(productCount) <= maxCount) {
       categoriesList.innerHTML += `
-        <div onclick="setCatID(${id})" class="list-group-item list-group-item-action cursor-active">
-          <div class="row">
-            <div class="col-3">
-              <img src="${imgSrc}" alt="${description}" class="img-thumbnail">
-            </div>
-            <div class="col">
-              <div class="d-flex w-100 justify-content-between">
-                <h4 class="mb-1">${name}</h4>
-                <small class="text-muted">${productCount} artículos</small>
-              </div>
-              <p class="mb-1">${description}</p>
-            </div>
+        <li class="ul__li ul__li--cat" onclick="setCatID(${id})" style="animation-delay: ${delayAnimationTimeMs}ms">
+          <img class="ul__img" src=${imgSrc} alt="${name}">
+          <div class="ul__div">
+            <span class="ul__span ul__span--title">${name}</span>
+            <span class="ul__span">${description}</span>
+            <span class="ul__span ul__span--soldcount">${productCount} vendidos</span>
           </div>
-        </div>
+        </li>
       `
+
+      delayAnimationTimeMs += 25
     }
   })
 }
