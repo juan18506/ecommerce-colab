@@ -19,6 +19,7 @@ document.getElementById('sortByCount').addEventListener('click', () => sortAndSh
 document.getElementById('clearRangeFilter').addEventListener('click', function () {
   rangeFilterCountMin.value = ''
   rangeFilterCountMax.value = ''
+  inputSearch.value = ''
 
   minCost = 0
   maxCost = Infinity

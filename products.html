@@ -45,18 +45,21 @@
       <section class="container">
         <header class="main__header">
           <div class="main__orders">
-            <input type="radio" name="options" id="sortAsc">
-            <label class="btn btn-light" for="sortAsc">
-              <i class="fas fa-sort-amount-down mr-1"></i>$
-            </label>
-            <input type="radio" class="btn-check" name="options" id="sortDesc">
-            <label class="btn btn-light" for="sortDesc">
-              <i class="fas fa-sort-amount-up mr-1"></i>$
-            </label>                
-            <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-            <label class="btn btn-light" for="sortByCount">
-              <i class="fas fa-sort-amount-down mr-1"></i>Rel.
-            </label>
+            <input type="search" name="search" class="form-control" id="search" placeholder="Buscar">
+            <div class="main__radios">
+              <input type="radio" name="options" id="sortAsc">
+              <label class="btn btn-light" for="sortAsc">
+                <i class="fas fa-sort-amount-down mr-1"></i>$
+              </label>
+              <input type="radio" class="btn-check" name="options" id="sortDesc">
+              <label class="btn btn-light" for="sortDesc">
+                <i class="fas fa-sort-amount-up mr-1"></i>$
+              </label>                
+              <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
+              <label class="btn btn-light" for="sortByCount">
+                <i class="fas fa-sort-amount-down mr-1"></i>Rel.
+              </label>
+            </div>
           </div>
 
           <div class="main__prices">
