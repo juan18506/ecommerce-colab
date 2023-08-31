@@ -6,7 +6,8 @@ const rangeFilterCountMin = document.getElementById('rangeFilterCountMin')
 const rangeFilterCountMax = document.getElementById('rangeFilterCountMax')
 const inputSearch = document.getElementById('search')
 const productsEndpoint = getProductsEndpoint()
-let currentProductsArray
+let currentProductsArray = null
+let filteredArray = null
 let minCost = 0
 let maxCost = Infinity
 
@@ -20,6 +21,7 @@ document.getElementById('clearRangeFilter').addEventListener('click', function (
   rangeFilterCountMin.value = ''
   rangeFilterCountMax.value = ''
   inputSearch.value = ''
+  filteredArray = null
 
   minCost = 0
   maxCost = Infinity
@@ -39,7 +41,7 @@ inputSearch.addEventListener('input', () => {
   if (!currentProductsArray) return
   const query = inputSearch.value.toLowerCase()
   
-  const filteredArray = currentProductsArray.filter((el) => {
+  filteredArray = currentProductsArray.filter((el) => {
     let { name, description } = el
     name = name.toLowerCase()
     description = description.toLowerCase()
@@ -47,7 +49,7 @@ inputSearch.addEventListener('input', () => {
     return name.includes(query) || description.includes(query)
   })
 
-  sortAndShowProducts(ORDER_BY_FILTER, filteredArray)
+  sortAndShowProducts(ORDER_BY_FILTER)
 })
 
 function getProductsEndpoint () {
@@ -102,11 +104,11 @@ function showProducts (productsData) {
   })
 }
 
-function sortAndShowProducts(criteria, filteredArray = currentProductsArray) {
+function sortAndShowProducts(criteria) {
   if (!currentProductsArray) return
 
   productList.innerHTML = ''
-  const sortedProducts = sortProducts(criteria, filteredArray)
+  const sortedProducts = filteredArray ? sortProducts(criteria, filteredArray) : sortProducts(criteria, currentProductsArray)
 
   let delayAnimationTimeMs = 25
   sortedProducts.forEach((product) => {
