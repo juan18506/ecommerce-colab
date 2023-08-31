@@ -19,13 +19,7 @@
   display: none;
   padding: 0.5em 1.5em;
 }
-.main__prices {
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 1em;
-}
-.main__prices > input { max-width: 10em; }
-.main__ranges, .main__buttons {
+.main__orders, .main__prices, .main__buttons, .main__ranges {
   display: flex;
   flex-flow: row nowrap;
   gap: 1em;
@@ -37,7 +31,7 @@
 .main__span { font-weight: bold; }
 .main__ul { padding: 0; }
 .ul__li {
-  padding: 1.5em 1em;
+  padding: 1em;
   margin-bottom: 1em;
   display: flex;
   flex-flow: row nowrap;
@@ -103,6 +97,13 @@
 }
 
 @media (max-width: 575px) {
+  .main__header { align-items: center; }
+  .main__orders > label, .main__buttons > button { padding: 0.5em 1.5em; }
+  .main__prices {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main__ranges > input::placeholder { text-align: center; }
   .ul__span--title { font-size: 1.2em; }
   .ul__span--cost { display: block; }
   .ul__span--cost::before { content: none; }
@@ -115,13 +116,6 @@
     gap: 1em;
   }
   .footer__a { display: block; }
-  .main__header { align-items: center; }
-  .main__orders > label, .main__buttons > button { padding: 0.5em 1.5em; }
-  .main__prices {
-    flex-direction: column;
-    align-items: center;
-  }
-  .main__ranges > input::placeholder { text-align: center; }
 }
 
 @keyframes fadeInDown {
