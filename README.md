@@ -2,27 +2,32 @@
 
 ## Dividir:
 
-- js de login
-- cerrar sesion
-- js de productos
-- algo particular de estilos
-- algo particular de html
-- desafiate
 - mostrar el funcionamiento de la pagina
+  - nombre en navbar post login
+  - productos dependiendo setID
+  - filtros | busqueda y limpiar
+  - normalizados estilos de productos-categorias
+  - responsive productos
+- nombre de usuario en navbar
+- mostrar productos dependiendo setID (localStorage) (products.js - getProductsEndpoint())
+- función sortProducts() (sort.js)
+- addEventListeners filtros y variables currentProductsArray - minCost - maxCost (products.js)
+- función sortAndShowProducts() (products.js)
+- desafiate (products.js)
 
 ## Integrantes:
 
 - Juan Alves Pedreira
-  - js productos
+  - función sortAndShowProducts() (products.js)
 - Giuliana Manzi
-  - mostrar el funcionamiento de la pagina
+  - mostrar productos dependiendo setID
 - Lua Lemes
-  - cerrar sesion (index.js)
+  - función sortProducts() (sort.js)
 - Matías Quiroga
-  - js login
+  - desafiate (products.js)
 - Micaela Belen Olivera
-  - algo particular de estilos
+  - mostrar el funcionamiento de la pagina
 - Santiago Delelli
-  - algo particular de html
+  - nombre de usuario en navbar
 - Valentina Butrico
-  - desafiate (index.js)
+  - addEventListeners filtros y variables currentProductsArray - minCost - maxCost (products.js)

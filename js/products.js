@@ -17,7 +17,7 @@ getProductsData(productsEndpoint)
 document.getElementById('sortAsc').addEventListener('click', () => sortAndShowProducts(ORDER_ASC_BY_COST))
 document.getElementById('sortDesc').addEventListener('click', () => sortAndShowProducts(ORDER_DESC_BY_COST))
 document.getElementById('sortByCount').addEventListener('click', () => sortAndShowProducts(ORDER_BY_PROD_COUNT))
-document.getElementById('clearRangeFilter').addEventListener('click', function () {
+document.getElementById('clearRangeFilter').addEventListener('click', () => {
   rangeFilterCountMin.value = ''
   rangeFilterCountMax.value = ''
   inputSearch.value = ''
