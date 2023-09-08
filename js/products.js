@@ -51,6 +51,14 @@ inputSearch.addEventListener('input', () => {
 
   sortAndShowProducts(ORDER_BY_FILTER)
 })
+productList.addEventListener('click', (e) => {
+  const li = e.target.closest('li')
+  const { id } = li
+  if (!id) return
+
+  localStorage.setItem('productID', id)
+  location.href = 'product-info.html'
+})
 
 function getProductsEndpoint () {
   const catID = window.localStorage.getItem('catID')
@@ -64,11 +72,11 @@ async function getProductsData (productsEndpoint) {
 }
 
 function addProductToHtml (product, delayAnimationTimeMs) {
-  const { name, description, image, cost, currency, soldCount } = product
+  const { id, name, description, image, cost, currency, soldCount } = product
   
   if (parseInt(cost) < minCost || parseInt(cost) > maxCost) return
   productList.innerHTML += `
-    <li class="ul__li" style="animation-delay: ${delayAnimationTimeMs}ms">
+    <li class="ul__li" id="${id}" style="animation-delay: ${delayAnimationTimeMs}ms">
       <img class="ul__img" src=${image} alt="${name}">
       <div class="ul__div">
         <span class="ul__span ul__span--title">${name}<span class="ul__span ul__span--cost">${cost} ${currency}</span></span>
