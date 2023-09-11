@@ -205,3 +205,15 @@ a.custom-card:hover {
 #profile:hover {
   color: rgba(255, 255, 255, 0.75) ;
 }
+
+@media (max-width: 575px) {
+  .footer__container {
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+  }
+  .footer__a { display: block; }
+}

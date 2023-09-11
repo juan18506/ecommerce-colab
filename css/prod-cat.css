@@ -117,15 +117,6 @@
   .ul__span--title { font-size: 1.2em; }
   .ul__span--cost { display: block; }
   .ul__span--cost::before { content: none; }
-  .footer__container {
-    display: flex;
-    flex-flow: column-reverse nowrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 1em;
-  }
-  .footer__a { display: block; }
 }
 
 @keyframes fadeInDown {
