@@ -10,10 +10,12 @@ const getProductsEndpoint = () => {
   const productsEndpoint = `${PRODUCTS_URL}${catID}${EXT_TYPE}`;
   return productsEndpoint;
 }
+
 const getProductsData = async (productsEndpoint) => {
   const productsData = await getJSONData(productsEndpoint);
   return productsData;
 }
+
 const addProductToHtml = (product, productList, delayAnimationTimeMs) => {
   const { id, name, description, image, cost, currency, soldCount } = product;
   
@@ -29,6 +31,7 @@ const addProductToHtml = (product, productList, delayAnimationTimeMs) => {
     </li>
   `;
 }
+
 const showProducts = (productsData, productList) => {
   const { status, data } = productsData;
 
@@ -54,6 +57,7 @@ const showProducts = (productsData, productList) => {
     delayAnimationTimeMs += 25;
   });
 }
+
 const sortAndShowProducts = (criteria, productList) => {
   if (!currentProductsArray) return;
 
@@ -74,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rangeFilterCountMin = document.getElementById('rangeFilterCountMin');
   const rangeFilterCountMax = document.getElementById('rangeFilterCountMax');
   const inputSearch = document.getElementById('search');
+
   const productsEndpoint = getProductsEndpoint();
   getProductsData(productsEndpoint).then(productsData => showProducts(productsData, productList));
 

@@ -46,10 +46,10 @@
   transition: background-color 200ms ease;
   animation: fadeInDown 300ms both;
 }
-.ul__li--cat:hover { cursor: pointer; }
 .ul__li:hover {
   --c-lightgrey: rgb(160, 160, 160);
   background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 .ul__div {
   width: 100%;

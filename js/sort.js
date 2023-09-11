@@ -24,6 +24,7 @@ const sortCategories = (criteria, array) => {
   
   if (criteria === ORDER_BY_PROD_COUNT) return array.sort((a, b) => b.productCount - a.productCount);
 }
+
 const sortProducts = (criteria, array) => {
   if (criteria === ORDER_ASC_BY_COST) return array.sort((a, b) => a.cost - b.cost);
   if (criteria === ORDER_DESC_BY_COST) return array.sort((a, b) => b.cost - a.cost);

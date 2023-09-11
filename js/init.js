@@ -9,6 +9,7 @@ const EXT_TYPE = '.json';
 
 const showSpinner = () => document.getElementById('spinner-wrapper').style.display = 'block';
 const hideSpinner = () => document.getElementById('spinner-wrapper').style.display = 'none';
+
 const getJSONData = (url) => {
   const result = {};
   showSpinner();

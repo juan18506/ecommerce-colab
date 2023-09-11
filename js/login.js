@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('user', accEmail.value);
     location.href = 'index.html';
   });
-  closeBtns.forEach((btn) => {
+  closeBtns.forEach(( btn ) => {
     btn.addEventListener('click', () => {
       if (alertDanger.classList.contains('show')) return;
       alertDanger.classList.remove('show');
