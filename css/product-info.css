@@ -24,3 +24,17 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
+table {
+   height: 12em;
+  width: 700 px;
+  padding: 0.5em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
+}
+
+td {
+  text-align: center;
+}
