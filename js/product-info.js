@@ -1,18 +1,17 @@
-
-
 const getProductInfo = async () => {
   const productID = localStorage.getItem('productID');
   const { data } = await getJSONData(`${PRODUCT_INFO_URL}${productID}${EXT_TYPE}`);
   return data;
 }
 
-const getProductComments = async()=> {
+const getProductComments = async () => {
   const productID = localStorage.getItem('productID');
   const { data } = await getJSONData(`${PRODUCT_INFO_COMMENTS_URL}${productID}${EXT_TYPE}`);
-  showProductComments(data);
+  return data;
 }
 
-const showProductInfo = (productInfo, app) => {
+const showProductInfo = (productInfo) => {
+  const productSection = document.getElementById('app');
   const { name, cost, description, category, soldCount, currency, images } = productInfo;
 
   let imgs = '';
@@ -23,12 +22,10 @@ const showProductInfo = (productInfo, app) => {
     `;
   });
 
-  
-
-  app.innerHTML += `
+  productSection.innerHTML += `
     <h1 class="main__h1">${ name }</h1>
 
-    <section class="main__section">
+    <section class="main__section mt-4">
       <h3 class="main__h3"> Precio </h3>
       <p class="main__p">${ currency } ${ cost }</p>
     </section>
@@ -52,45 +49,67 @@ const showProductInfo = (productInfo, app) => {
     </section>
   `;
 }
-const showProductComments = (comentarios) => {
+
+const addCommentToHtml = (comment) => {
   const commentsList = document.getElementById("comments-list");
+  const { user, dateTime, score, description } = comment;
 
-  comentarios.forEach((comentario) => {
-    const listItem = document.createElement("tr");
-    listItem.innerHTML = `
-      <th>${comentario.user}</th>
-      <th>${comentario.score}</th>
-      <th>${comentario.description}</th>
-      <th>${comentario.dateTime}</th>
+  let commentStars = '';
+  for (let i = 1; i <= 5; i++) {
+    const color = (score>= i) ? '#febf01' : '#c0c0c0';
+
+    commentStars += `
+      <i class="fas fa-star" style="color: ${ color };"></i>
     `;
+  }
 
-    commentsList.appendChild(listItem);
+  commentsList.innerHTML += `
+    <li class="comments__li">
+      <header class="comments__header">
+        <span class="comments__span">${ user }</span> - ${ dateTime } - <span>${ commentStars }</span>
+      </header>
+
+      <main class="comment__main">${ description }</main>
+    </li>
+  `;
+}
+
+const showProductComments = (comments) => {
+  comments.forEach((comment) => {
+    addCommentToHtml(comment);
   });
-};
+}
 
+const getDate = () => {
+  const date = new Date();
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = document.getElementById('app');
-  const comentarios = document.getElementById('comentarios'); 
+  return {
+    year: date.getFullYear().toString(),
+    month: (date.getMonth() + 1).toString().padStart(2, '0'),
+    day: date.getDate().toString().padStart(2, '0'),
+    hour: date.getHours().toString().padStart(2, '0'),
+    minutes: date.getMinutes().toString().padStart(2, '0'),
+    seconds: date.getSeconds().toString().padStart(2, '0'),
+  }
+}
 
-  getProductInfo()
-    .then(productInfo => showProductInfo(productInfo, app));
+document.getElementById('SendComm').addEventListener('click', () => {
+  const { year, month, day, hour, minutes, seconds } = getDate();
 
-  getProductComments()
-  .then(productComments => showProductComments(productComments, comentarios));
+  const comment = {
+    user: localStorage.getItem('user').split('@')[0],
+    dateTime: `${ year }-${ month }-${ day } ${ hour }:${ minutes }:${ seconds }`,
+    description: document.getElementById('comm').value,
+    score: document.getElementById('stars').value,
+  };
 
-
+  addCommentToHtml(comment);
 });
 
-document.getElementById('SendComm').addEventListener('click',()=>{
-  const commNuevo = document.getElementById('comm')
-  const comentarioNuevo = document.createElement("tr");
-  comentarioNuevo.innerHTML = `
-  <th></th>
-  <th></th>
-  <th>${commNuevo}</th>
-  <th></th>`;
+document.addEventListener('DOMContentLoaded', () => {
+  getProductInfo()
+    .then(productInfo => showProductInfo(productInfo));
 
-  document.getElementById('comments-list').appendChild(comentarioNuevo);
-
-})
+  getProductComments()
+    .then(productComments => showProductComments(productComments));
+});

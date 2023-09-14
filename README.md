@@ -31,3 +31,15 @@
   - nombre de usuario en navbar
 - Valentina Butrico
   - addEventListeners filtros y variables currentProductsArray - minCost - maxCost (products.js)
+
+
+    let asd = ''
+    for (let i = 0; i < 5; i++) {
+      const color = (score > i) ? 'style="color: #febf01;' : 'style="color: #c0c0c0;"';
+
+      asd += `
+        <i class="fas fa-star" ${ color }></i>
+      `;
+    }
+
+    <span>${ asd }</span>

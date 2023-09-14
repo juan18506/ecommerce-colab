@@ -1,6 +1,6 @@
 .main__h1 {
   /* background-color: lightblue; */
-  padding: 1em 0;
+  padding: 0.75em 0;
   border-bottom: 1px solid black;
 }
 .main__section {
@@ -24,17 +24,44 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
-table {
-   height: 12em;
-  width: 700 px;
-  padding: 0.5em;
+.comments__ul {
+  margin: 1em 0;
+  /* background-color: lightgreen; */
+  list-style: none;
+  padding: 0;
+}
+
+.comments__li {
+  width: 100%;
+  padding: 1em;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-items: start;
+  text-align: center;
+}
+
+.comments__header {}
+
+.comment__main {
+  min-height: auto;
+}
+
+.comments__span {
+  font-weight: bold;
+}
+
+.section__comments {
+  display: flex;
+  flex-flow: column nowrap;
   gap: 1em;
 }
 
-td {
-  text-align: center;
+@media ( max-width: 768px ) {
+  .main__img {
+    width: 100%;
+    height: auto;
+  }
 }
