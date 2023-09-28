@@ -55,7 +55,7 @@
 
 .date__span {
   font-size: 90%;
-  color: rgba(0, 0, 0, 0.7);
+  opacity: 0.9;
 }
 
 .section__comments {
