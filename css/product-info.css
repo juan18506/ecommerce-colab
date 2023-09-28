@@ -94,5 +94,18 @@ h2{
 
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
-    filter: invert(100%);
+  filter: invert(100%);
+}
+
+.carrousel-arrow-bg {
+  padding: 0.25em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.carousel {
+  margin: 1em 0;
 }
