@@ -42,11 +42,13 @@ const showProductInfo = (productInfo) => {
 
   let imgs = '';
 
-  images.forEach(url => {
+  for (let i=1; i<images.length; i++){
     imgs += `
-      <img class="main__img" src="${ url }" alt="${ name }">
+      <div class="carousel-item">
+        <img class="d-block w-100" src="${ images[i] }" alt="${ name }">
+      </div>
     `;
-  });
+  };
 
   productSection.innerHTML += `
     <h1 class="main__h1">${ name }</h1>
@@ -69,8 +71,25 @@ const showProductInfo = (productInfo) => {
     </section>
     <section class="main__section">
       <h3 class="main__h3"> Imágenes ilustrativas </h3>
-      <div class="main__div">
-        ${ imgs }
+      <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="${ images[0] }" class="d-block w-100" alt="${ name }">
+          </div>
+          ${ imgs }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+          <div class="carrousel-arrow-bg">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </div>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+          <div class="carrousel-arrow-bg">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </div>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </section>
   `;
@@ -92,10 +111,10 @@ const addCommentToHtml = (comment) => {
   commentsList.innerHTML += `
     <li class="comments__li">
       <header class="comments__header">
-        <span class="comments__span">${ user }</span> - ${ dateTime } - <span>${ commentStars }</span>
+        <span class="comments__span">${ user }</span> - <span class="date__span">${ dateTime } </span> - <span>${ commentStars }</span>
       </header>
 
-      <main class="comment__main">${ description }</main>
+      <main class="comment__main">${ description }</main> 
     </li>
   `;
 }

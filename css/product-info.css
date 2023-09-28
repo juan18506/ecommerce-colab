@@ -53,6 +53,11 @@
   font-weight: bold;
 }
 
+.date__span {
+  font-size: 90%;
+  color: rgba(0, 0, 0, 0.7);
+}
+
 .section__comments {
   display: flex;
   flex-flow: column nowrap;
@@ -72,7 +77,35 @@
   gap: 1em;
   flex-direction: row;
 }
+
 .divRP{
   width: 20%;
   text-align: center;
+}
+
+.carousel {
+  width:640px;
+  height:360px;
+}
+
+h2{ 
+  padding-top: .5em
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+  filter: invert(100%);
+}
+
+.carrousel-arrow-bg {
+  padding: 0.25em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.carousel {
+  margin: 1em 0;
 }
