@@ -19,7 +19,7 @@ const getRelatedProducts = async () => {
 
 const showRelatedProducts = (RelatedProducts) =>{
   let containerRelatedProducts= document.getElementById('containerRelatedProducts')
-  console.log(RelatedProducts)
+
   RelatedProducts.forEach(i => {
     let containerEach=document.createElement('div')
     containerEach.classList.add('card', 'divRP')
