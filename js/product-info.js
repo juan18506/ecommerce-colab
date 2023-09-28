@@ -28,7 +28,7 @@ const showRelatedProducts = (RelatedProducts) =>{
     let img=i.image
 
     containerEach.innerHTML+=`
-      <img src="${img}">
+      <img src="${img}" onclick="setProductID(${id})">
       <strong>${name}</strong>
     `
     containerRelatedProducts.appendChild(containerEach)
@@ -93,6 +93,11 @@ const showProductInfo = (productInfo) => {
       </div>
     </section>
   `;
+}
+
+const setProductID = (id) => {
+  localStorage.setItem('productID', id);
+  location = 'product-info.html';
 }
 
 const addCommentToHtml = (comment) => {
