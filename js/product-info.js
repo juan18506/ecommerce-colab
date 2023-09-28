@@ -74,7 +74,7 @@ const showProductInfo = (productInfo) => {
       <div id="carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="${images[0]}" class="d-block w-100" alt="hola">
+            <img src="${ images[0] }" class="d-block w-100" alt="${ name }">
           </div>
           ${ imgs }
         </div>
