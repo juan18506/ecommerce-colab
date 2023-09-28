@@ -13,7 +13,7 @@ const getProductComments = async () => {
 const getRelatedProducts = async () => {
   const productID = localStorage.getItem('productID');
   const { data } = await getJSONData(`${PRODUCT_INFO_URL}${productID}${EXT_TYPE}`);
-  const RelatedProducts=data.relatedProducts
+  const RelatedProducts= data.relatedProducts
   return RelatedProducts;
 }
 
@@ -23,13 +23,13 @@ const showRelatedProducts = (RelatedProducts) =>{
   RelatedProducts.forEach(i => {
     let containerEach=document.createElement('div')
     containerEach.classList.add('divRP','card','bd-placeholder-img','card-img-top')
-    let name=i.name
-    let id=i.id
-    let img=i.image
+    let name= i.name
+    let id= i.id
+    let img= i.image
 
     containerEach.innerHTML+=`
-      <img src="${img}" onclick="setProductID(${id})">
-      <strong>${name}</strong>
+      <img src="${ img }" onclick="setProductID(${ id })">
+      <strong>${ name }</strong>
     `
     containerRelatedProducts.appendChild(containerEach)
   });
@@ -42,7 +42,7 @@ const showProductInfo = (productInfo) => {
 
   let imgs = '';
 
-  for (let i=1; i<images.length; i++){
+  for (let i = 1; i < images.length; i++){
     imgs += `
       <div class="carousel-item">
         <img class="d-block w-100" src="${ images[i] }" alt="${ name }">

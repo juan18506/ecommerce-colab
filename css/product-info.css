@@ -22,7 +22,7 @@
   width: auto;
   padding: 0.5em;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+  border-radius: 0.25rem;
 }
 .comments__ul {
   margin: 1em 0;
@@ -35,7 +35,7 @@
   width: 100%;
   padding: 1em;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+  border-radius: 0.25rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: start;
@@ -55,7 +55,7 @@
 
 .date__span {
   font-size: 90%;
-  color: rgba(0, 0, 0, 0.7);
+  opacity: 0.9;
 }
 
 .section__comments {
