@@ -81,6 +81,7 @@
 .divRP{
   width: 20%;
   text-align: center;
+  cursor: pointer;
 }
 
 .carousel {
@@ -109,3 +110,4 @@ h2{
 .carousel {
   margin: 1em 0;
 }
+
