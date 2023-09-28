@@ -10,6 +10,32 @@ const getProductComments = async () => {
   return data;
 }
 
+const getRelatedProducts = async () => {
+  const productID = localStorage.getItem('productID');
+  const { data } = await getJSONData(`${PRODUCT_INFO_URL}${productID}${EXT_TYPE}`);
+  const RelatedProducts=data.relatedProducts
+  return RelatedProducts;
+}
+
+const showRelatedProducts = (RelatedProducts) =>{
+  let containerRelatedProducts= document.getElementById('containerRelatedProducts')
+  console.log(RelatedProducts)
+  RelatedProducts.forEach(i => {
+    let containerEach=document.createElement('div')
+    containerEach.classList.add('divRP','card','bd-placeholder-img','card-img-top')
+    let name=i.name
+    let id=i.id
+    let img=i.image
+
+    containerEach.innerHTML+=`
+      <img src="${img}">
+      <strong>${name}</strong>
+    `
+    containerRelatedProducts.appendChild(containerEach)
+  });
+  
+}
+
 const showProductInfo = (productInfo) => {
   const productSection = document.getElementById('app');
   const { name, cost, description, category, soldCount, currency, images } = productInfo;
@@ -127,4 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   getProductComments()
     .then(productComments => showProductComments(productComments));
+
+  getRelatedProducts()
+    .then(relatedProducts => showRelatedProducts(relatedProducts))
 });
