@@ -65,3 +65,14 @@
     height: auto;
   }
 }
+
+#containerRelatedProducts{
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  flex-direction: row;
+}
+.divRP{
+  width: 20%;
+  text-align: center;
+}
