@@ -16,7 +16,7 @@ body {
   width: 56.25em;
   height: 18.75em;
   margin: 1.5em auto;
-  background-image: url('/img/login.png');
+  background-image: url('../img/login.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
