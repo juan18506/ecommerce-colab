@@ -16,13 +16,13 @@ const showProductInfo = (productInfo) => {
 
   let imgs = '';
 
-  images.forEach(url => {
+  for (let i=1; i<images.length; i++){
     imgs += `
       <div class="carousel-item">
-        <img class="d-block w-100" src="${ url }" alt="${ name }">
+        <img class="d-block w-100" src="${ images[i] }" alt="${ name }">
       </div>
     `;
-  });
+  };
 
   productSection.innerHTML += `
     <h1 class="main__h1">${ name }</h1>
