@@ -41,6 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const profile = document.getElementById('profile');
   profile.textContent = user;
+
+  const theme = localStorage.getItem('theme');
+  if (theme === 'dark' && location.pathname !== '/') {
+    document.body.classList.add('bg-dark', 'text-light');
+  }
+
+  document.getElementById('theme').addEventListener('click', () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', newTheme);
+    location.reload();
+  });
   
   document.getElementById('logout').addEventListener('click', () => localStorage.removeItem('user'));
 });
