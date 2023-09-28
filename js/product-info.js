@@ -22,14 +22,16 @@ const showRelatedProducts = (RelatedProducts) =>{
   console.log(RelatedProducts)
   RelatedProducts.forEach(i => {
     let containerEach=document.createElement('div')
-    containerEach.classList.add('divRP','card','bd-placeholder-img','card-img-top')
+    containerEach.classList.add('card', 'divRP')
     let name= i.name
     let id= i.id
     let img= i.image
 
     containerEach.innerHTML+=`
-      <img src="${ img }" onclick="setProductID(${ id })">
-      <strong>${ name }</strong>
+      <img class="card-img-top" src="${ img }" onclick="setProductID(${ id })">
+      <div class="card-body">
+        <span class="card-title">${ name }</span>
+      </div>
     `
     containerRelatedProducts.appendChild(containerEach)
   });
