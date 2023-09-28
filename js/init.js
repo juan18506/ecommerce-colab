@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   profile.textContent = user;
 
   const theme = localStorage.getItem('theme');
-  if (theme === 'dark' && location.href !== 'index.html') {
+  if (theme === 'dark' && !document.body.classList.contains('index')) {
     document.body.classList.add('bg-dark', 'text-light');
   }
 
