@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('theme').addEventListener('click', () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('theme', newTheme);
-    location.reload();
+    document.body.classList.toggle('bg-dark');
+    document.body.classList.toggle('text-light');
   });
   
   document.getElementById('logout').addEventListener('click', () => localStorage.removeItem('user'));

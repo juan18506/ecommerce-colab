@@ -13,14 +13,14 @@
 ## Integrantes:
 
 - Juan Alves Pedreira
-  - desafiate
-- Giuliana Manzi
-  - punto 1
-- Lua Lemes
-  - punto 4
-- Matías Quiroga
   - punto 3
-- Micaela Belen Olivera
-  - mostrar el funcionamiento de la pagina
-- Santiago Delelli
+- Giuliana Manzi
   - punto 2
+- Lua Lemes
+  - punto 1
+- Matías Quiroga
+  - punto 2
+- Micaela Belen Olivera
+  - funcionamiento
+- Santiago Delelli
+  - desafíate
