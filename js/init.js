@@ -43,18 +43,29 @@ document.addEventListener('DOMContentLoaded', () => {
   profile.textContent = user;
 
   const theme = localStorage.getItem('theme');
-  if (theme === 'dark' && !document.body.classList.contains('index')) {
+  const jumbotron = document.getElementById('jumbotron');
+  const autos = document.getElementById('autos');
+  const juguetes = document.getElementById('juguetes');
+  const muebles = document.getElementById('muebles');
+  if (theme === 'dark') {
     document.body.classList.add('bg-dark', 'text-light');
+    jumbotron.classList.add('jumbotron-dark');
+    autos.classList.add('bg-dark');
+    juguetes.classList.add('bg-dark');
+    muebles.classList.add('bg-dark')
   }
 
   document.getElementById('theme').addEventListener('click', () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('theme', newTheme);
 
-    if (!document.body.classList.contains('index')) {
       document.body.classList.toggle('bg-dark');
       document.body.classList.toggle('text-light');
-    }
+      jumbotron.classList.toggle('jumbotron-dark');
+      autos.classList.toggle('bg-dark');
+      juguetes.classList.toggle('bg-dark');
+      muebles.classList.toggle('bg-dark')
+
   });
   
   document.getElementById('logout').addEventListener('click', () => localStorage.removeItem('user'));
