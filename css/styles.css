@@ -42,17 +42,7 @@ nav a {
 }
 
 .jumbotron-dark {
-  height: 50vh;
-  padding: 5em inherit;
-  margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back_dark.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: black;
-  font-weight: bold;
-
+  background-image: url('../img/cover_back_dark.png');
 }
 
 @media (min-width: 768px) {
