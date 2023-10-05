@@ -42,19 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const profile = document.getElementById('profile');
   profile.textContent = user;
 
-  const theme = localStorage.getItem('theme');
-  if (theme === 'dark' && !document.body.classList.contains('index')) {
-    document.body.classList.add('bg-dark', 'text-light');
-  }
+  let theme = localStorage.getItem('theme') ?? 'light';
+  document.body.setAttribute('data-bs-theme', theme);
 
   document.getElementById('theme').addEventListener('click', () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', newTheme);
+    theme = theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', theme);
 
-    if (!document.body.classList.contains('index')) {
-      document.body.classList.toggle('bg-dark');
-      document.body.classList.toggle('text-light');
-    }
+    document.body.setAttribute('data-bs-theme', theme);
   });
   
   document.getElementById('logout').addEventListener('click', () => localStorage.removeItem('user'));
