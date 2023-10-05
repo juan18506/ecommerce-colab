@@ -55,7 +55,7 @@ const showProductInfo = (productInfo) => {
   productSection.innerHTML += `
     <h1 class="main__h1">${ name }</h1>
 
-    <section class="main__section mt-4">
+    <section class="mb-2 mt-4">
       <h3 class="main__h3"> Precio </h3>
       <p class="main__p">${ currency } ${ cost }</p>
     </section>
@@ -73,7 +73,7 @@ const showProductInfo = (productInfo) => {
     </section>
     <section class="main__section">
       <h3 class="main__h3"> Imágenes ilustrativas </h3>
-      <div id="carousel" class="carousel slide w-100 h-auto" data-bs-ride="carousel">
+      <div id="carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="${ images[0] }" class="d-block w-100" alt="${ name }">
@@ -116,9 +116,9 @@ const addCommentToHtml = (comment) => {
   }
 
   commentsList.innerHTML += `
-    <li class="comments__li text-center text-sm-start">
+    <li class="w-100 p-3 border rounded d-flex flex-column flex-nowrap text-center text-sm-start">
       <header class="comments__header mb-1 d-flex flex-column align-items-center justify-content-center w-100 d-sm-block">
-        <span class="comments__span">${ user }</span>  <span class="date__span">${ dateTime } </span>  <span>${ commentStars }</span>
+        <span class="fw-bold">${ user }</span>  <span class="date__span">${ dateTime } </span>  <span>${ commentStars }</span>
       </header>
 
       <main class="comment__main w-100">${ description }</main> 
