@@ -43,51 +43,49 @@
     </nav>
   </header>
 
-  <main class="container">
-    <div class="main__div">
-      <section class="main__section">
-        <h1 class="main__h1">Productos</h1>
-        <p class="main__p">Verás aquí todos los productos de la categoría <span class="main__span" id="category"></span></p>
-      </section>
+  <main class="mt-4 container">
+    <section class="mb-4 text-center">
+      <h1 class="mb-1">Productos</h1>
+      <p class="m-0">Verás aquí todos los productos de la categoría <span class="fw-bold" id="category"></span></p>
+    </section>
 
-      <section class="container">
-        <header class="main__header">
-          <div class="main__orders">
-            <input type="search" name="search" class="form-control" id="search" placeholder="Buscar">
-            <div class="main__radios">
-              <input type="radio" name="options" id="sortAsc">
-              <label class="btn btn-light" for="sortAsc">
-                <i class="fas fa-sort-amount-down mr-1"></i>$
-              </label>
-              <input type="radio" class="btn-check" name="options" id="sortDesc">
-              <label class="btn btn-light" for="sortDesc">
-                <i class="fas fa-sort-amount-up mr-1"></i>$
-              </label>                
-              <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-              <label class="btn btn-light" for="sortByCount">
-                <i class="fas fa-sort-amount-down mr-1"></i>Rel.
-              </label>
-            </div>
+    <section class="container">
+      <header class="d-flex flex-column justify-content-center align-items-center gap-2 mb-4 align-items-md-end">
+        <div class="w-100 d-flex flex-column-reverse align-items-center flex-nowrap gap-2 justify-content-center flex-md-row justify-content-md-end orders">
+          <input type="search" name="search" class="form-control d-block" id="search" placeholder="Buscar">
+          <div class="d-flex flex-nowrap gap-2">
+            <input class="d-none" type="radio" name="options" id="sortAsc">
+            <label class="btn btn-light px-4" for="sortAsc">
+              <i class="fas fa-sort-amount-down mr-1"></i>$
+            </label>
+            <input class="d-none" type="radio" class="btn-check" name="options" id="sortDesc">
+            <label class="btn btn-light px-4" for="sortDesc">
+              <i class="fas fa-sort-amount-up mr-1"></i>$
+            </label>                
+            <input class="d-none" type="radio" class="btn-check" name="options" id="sortByCount" checked>
+            <label class="btn btn-light px-4" for="sortByCount">
+              <i class="fas fa-sort-amount-down mr-1"></i>Rel.
+            </label>
           </div>
+        </div>
 
-          <div class="main__prices">
-            <div class="main__ranges">
-              <p class="font-weight-normal text-end my-2 main__price">Precio</p>
-              <input class="form-control" type="number" placeholder="Precio mín." id="rangeFilterCountMin">
-              <input class="form-control" type="number" placeholder="Precio máx." id="rangeFilterCountMax">
-            </div>
-            <div class="main__buttons">
-              <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-              <button class="btn btn-light btn-block" id="clearRangeFilter">Limpiar</button>
-            </div>
+        <div class="d-flex flex-column flex-nowrap gap-2 flex-md-row align-items-md-center">
+          <div class="d-flex flex-nowrap gap-2">
+            <p class="d-none font-weight-normal text-end my-2 d-md-block">Precio</p>
+            <input class="form-control text-center text-md-start" type="number" placeholder="Precio mín." id="rangeFilterCountMin">
+            <input class="form-control text-center text-md-start" type="number" placeholder="Precio máx." id="rangeFilterCountMax">
           </div>
-        </header>
+          <div class="d-flex flex-nowrap justify-content-center gap-2">
+            <button class="btn btn-light btn-block w-100 px-4" id="rangeFilterCount">Filtrar</button>
+            <button class="btn btn-light btn-block w-100 px-4" id="clearRangeFilter">Limpiar</button>
+          </div>
+        </div>
+      </header>
 
-        <section class="productos">
-          <ul class="main__ul ul" id="products"></ul>
-        </section>
+      <section>
+        <ul class="p-0" id="products"></ul>
       </section>
-    </div>
+    </section>
   </main>
 
   <footer class="text-muted">

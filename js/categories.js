@@ -24,12 +24,12 @@ const showCategoriesList = () => {
 
     if (parseInt(productCount) >= minCount && parseInt(productCount) <= maxCount) {
       categoriesList.innerHTML += `
-        <li class="ul__li ul__li--cat" onclick="setCatID(${id})" style="animation-delay: ${delayAnimationTimeMs}ms">
+        <li class="ul__li" onclick="setCatID(${id})" style="animation-delay: ${delayAnimationTimeMs}ms">
           <img class="ul__img" src=${imgSrc} alt="${name}">
-          <div class="ul__div">
-            <span class="ul__span ul__span--title">${name}</span>
-            <span class="ul__span">${description}</span>
-            <span class="ul__span ul__span--soldcount">${productCount} vendidos</span>
+          <div class="w-100 position-relative">
+            <span class="d-block ul__span--title">${name}</span>
+            <span class="d-block">${description}</span>
+            <span class="d-block ul__span--soldcount">${productCount} vendidos</span>
           </div>
         </li>
       `;
