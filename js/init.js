@@ -43,12 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
   profile.textContent = user;
 
   let theme = localStorage.getItem('theme') ?? 'light';
+  const jumbotron = document.getElementById('jumbotron');
+
+  if (jumbotron && theme === 'dark') jumbotron.classList.add('jumbotron-dark');
   document.body.setAttribute('data-bs-theme', theme);
 
   document.getElementById('theme').addEventListener('click', () => {
     theme = theme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('theme', theme);
 
+    if (jumbotron) jumbotron.classList.toggle('jumbotron-dark');
     document.body.setAttribute('data-bs-theme', theme);
   });
   

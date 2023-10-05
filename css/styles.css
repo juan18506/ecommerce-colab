@@ -41,6 +41,10 @@ nav a {
   font-weight: bold;
 }
 
+.jumbotron-dark {
+  background-image: url('../img/cover_back_dark.png');
+}
+
 @media (min-width: 768px) {
   .jumbotron {
     padding-top: 6rem;
