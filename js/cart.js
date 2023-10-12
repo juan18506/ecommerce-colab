@@ -12,13 +12,13 @@ const showCartInfo = async (cartInfo) => {
         
         cartSection.innerHTML += `
             <div class="col-md-2">
-                <img class="w-75" src="${ image }" alt="${name}">
+                <img class="w-75" src="${ image }" alt="${ name }">
             </div>
             <div class="col-md-2">
                 <p>${ name }</p>
             </div>
             <div class="col-md-2">
-                <p>${currency}${ unitCost }</p>
+                <p>${ currency }${ unitCost }</p>
             </div>
             <div class="col-md-2">
                 <input type="number" name="cantidad" class="form-control w-50 cantidad" value="${ count }">
