@@ -53,7 +53,13 @@ const showProductInfo = (productInfo) => {
   };
 
   productSection.innerHTML += `
-    <h1 class="main__h1">${ name }</h1>
+    <section >
+      <h1 class="main__h1 d-flex align-items-center justify-content-between">
+        ${ name } 
+        <button id="addCart" class="btn btn-success">Comprar</button>
+      </h1>
+      <hr>
+    </section>
 
     <section class="mb-2 mt-4">
       <h3 class="main__h3"> Precio </h3>
@@ -158,13 +164,31 @@ document.getElementById('SendComm').addEventListener('click', () => {
   addCommentToHtml(comment);
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  getProductInfo()
-    .then(productInfo => showProductInfo(productInfo));
+document.addEventListener('DOMContentLoaded', async () => {
+  const productInfo = await getProductInfo()
+  showProductInfo(productInfo);
 
-  getProductComments()
-    .then(productComments => showProductComments(productComments));
+  const productComments = await getProductComments()
+  showProductComments(productComments);
 
-  getRelatedProducts()
-    .then(relatedProducts => showRelatedProducts(relatedProducts))
+  const relatedProducts = await getRelatedProducts()
+  showRelatedProducts(relatedProducts);
+
+  document.getElementById('addCart').addEventListener('click', (event) => {
+    event.currentTarget.disabled = true;
+
+    const localCartInfo = localStorage.getItem('cart');
+    const cartInfo = localCartInfo ? JSON.parse(localStorage.getItem('cart')) : [];
+
+    cartInfo.push({
+      count: 1,
+      currency: productInfo.currency,
+      id: productInfo.id,
+      image: productInfo.images[0],
+      name: productInfo.name,
+      unitCost: productInfo.cost,
+    });
+
+    localStorage.setItem('cart', JSON.stringify(cartInfo));
+  });
 });
