@@ -26,8 +26,8 @@
 }
 
 .carousel {
-  width:640px;
-  height:360px;
+  max-width: 40rem;
+  max-height: 22.5rem;
   margin: 1em 0;
 }
 

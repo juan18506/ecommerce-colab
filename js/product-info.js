@@ -54,7 +54,7 @@ const showProductInfo = (productInfo) => {
 
   productSection.innerHTML += `
     <section >
-      <h1 class="main__h1 d-flex align-items-center justify-content-between">
+      <h1 class="main__h1 d-flex flex-column flex-sm-row gap-3 m-0 align-items-center justify-content-between">
         ${ name } 
         <button id="addCart" class="btn btn-success">Comprar</button>
       </h1>
@@ -82,7 +82,7 @@ const showProductInfo = (productInfo) => {
       <div id="carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="${ images[0] }" class="d-block w-100" alt="${ name }">
+            <img src="${ images[0] }" class="d-block img-fluid" alt="${ name }">
           </div>
           ${ imgs }
         </div>
