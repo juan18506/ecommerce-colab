@@ -209,3 +209,7 @@ a.custom-card:hover {
 #profile:hover {
   color: rgba(255, 255, 255, 0.75) ;
 }
+
+.delete-button {
+  cursor: pointer;
+}

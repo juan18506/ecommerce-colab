@@ -47,32 +47,32 @@
     </div>
   </nav>
   <main>
-    <div class="mt-4 container w-50">
+    <div class="mt-4 container w-75">
       <section class="p-4 text-center">
         <h2>Carrito de compras</h2>
       </section>
       <section class="p-4">
         <h3>Artículos a comprar</h3>
       </section>
-        <section class="container m-4">
-          <div class="row justify-content-md-center border-bottom border-dark">
-            <div class="col-md-2">
+        <section class="container m-4" id="articulos">
+          <div class="row justify-content-center border-bottom border-dark d-none d-lg-flex">
+            <div class="col-lg-2 col-sm-4">
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-3 col-sm-4">
               <p><strong>Nombre</strong></p>
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-2 col-sm-4">
               <p><strong>Costo</strong></p> 
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-2 col-sm-5">
               <p><strong>Cantidad</strong></p>
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-3 col-sm-5">
               <p><strong>Subtotal</strong></p>
             </div>
-            <div class="col-md-2"></div> 
+            <div class="col-lg col-sm-2"></div> 
           </div>
-          <div class="row justify-content-md-center border-bottom pt-2 pb-2" id="cart-section">
+          <div class="row border-bottom border-dark pt-2 pb-2 gy-3" id="cart-section">
           </div>
         </section>
         <section class="m-4">
@@ -89,21 +89,24 @@
             <input type="radio" name="tipo-envio" id="standard">
             <label for="standard">Standard | 12-15 días (5%)</label>
           </div>
-      </section>
-      <section class="m-4 pt-4">
+        </section>
+      <section class="m-4 pt-4 pb-4 border-bottom">
         <h3 class="pb-2">Dirección de envío</h3>
 
-        <div class="pb-2">
-          <label for="calle">Calle</label>
-          <input type="text" name="calle" id="calle" class="form-control w-25">
-        </div>
-        <div class="pb-2">
-          <label for="numero">Número</label>
-          <input type="text" name="numero" id="numero" class="form-control w-25">
-        </div>
-        <div>
-          <label for="esquina">Esquina</label>
-          <input type="text" name="esquina" id="esquina" class="form-control w-25">
+        <div class="row pb-2 gy-2">
+          <div class="col-6">
+            <label for="calle">Calle</label>
+            <input type="text" name="calle" id="calle" class="form-control">
+          </div>
+          <div class="col-3">
+            <label for="numero">Número</label>
+            <input type="text" name="numero" id="numero" class="form-control">
+          </div>
+          <div class="col-3"></div>
+          <div class="col-6">
+            <label for="esquina">Esquina</label>
+            <input type="text" name="esquina" id="esquina" class="form-control">
+          </div>
         </div>
       </section>
     </div>
