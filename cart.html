@@ -93,21 +93,57 @@
       <section class="m-4 pt-4 pb-4 border-bottom">
         <h3 class="pb-2">Dirección de envío</h3>
 
-        <div class="row pb-2 gy-2">
-          <div class="col-6">
+        <div class="row row-cols-1 row-cols-xl-2 pb-2 gy-2">
+          <div class="col">
             <label for="calle">Calle</label>
             <input type="text" name="calle" id="calle" class="form-control">
           </div>
-          <div class="col-3">
+          <div class="col">
             <label for="numero">Número</label>
-            <input type="text" name="numero" id="numero" class="form-control">
+            <input type="text" name="numero" id="numero" class="form-control w-50">
           </div>
-          <div class="col-3"></div>
-          <div class="col-6">
+          <div class="col">
             <label for="esquina">Esquina</label>
             <input type="text" name="esquina" id="esquina" class="form-control">
           </div>
         </div>
+      </section>
+      <section class="m-4">
+        <div class="card p-0 m-0 border-0">
+          <div class="card-title"><h3>Costos</h3></div>
+        </div>
+        
+        <div class="row row-cols-2 row-cols-xl-2 ps-4 pe-4 align-items-center border rounded">
+          <div class="col-12 col-md-11 col-sm-8 p-1">
+            <p class="m-0 p-2">
+              Subtotal
+              <br>
+              <small class="text-body-secondary d-none d-md-block">Costo unitario del producto por cantidad</small>
+            </p>
+          </div>
+          <div class="col-4 col-md-1 p-0 text-end"><p class="text-body-secondary m-0" id="precio">Precio</p></div>
+        
+          <div class="col-12 col-md-11 col-sm-8 p-1">
+            <p class="m-0 p-2">
+              Costo de envío
+              <br>
+              <small class="text-body-secondary d-none d-md-block">Según el tipo de envío</small>
+            </p>
+          </div>
+          <div class="col-4 col-md-1 text-end p-0"><p class="text-body-secondary m-0" id="envio">Envío</p></div>      
+        
+          <div class="col-12 col-md-11 col-sm-8 p-1">
+            <p class="m-0 p-2">
+              Total ($)
+            </p>
+          </div>
+          <div class="col-4 col-md-1 text-end p-0"><p class=" m-0 fw-semibold" id="total">Total</p></div>
+        
+      </div>
+    
+
+
+
       </section>
     </div>
   </main>
