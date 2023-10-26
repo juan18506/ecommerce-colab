@@ -124,8 +124,9 @@
               <small class="text-body-secondary d-none d-md-block">Costo unitario del producto por cantidad</small>
             </p>
           </div>
-          <div class="col-4 col-md-1 p-0 text-end">USD <span class="text-body-secondary m-0" id="precio">Precio</span></div>
-        
+          <div class="col-4 col-md-1 p-0 text-end">USD <span class="text-body-secondary m-0" id="precio">Precio</span>
+          </div>
+
           <div class="col-12 col-md-11 col-sm-8 p-1">
             <p class="m-0 p-2">
               Costo de envío
@@ -133,32 +134,22 @@
               <small class="text-body-secondary d-none d-md-block">Según el tipo de envío</small>
             </p>
           </div>
-          <div class="col-4 col-md-1 text-end p-0">USD <span class="text-body-secondary m-0" id="envio">Envío</span></div>      
-        
+          <div class="col-4 col-md-1 text-end p-0">USD <span class="text-body-secondary m-0" id="envio">Envío</span>
+          </div>
+
           <div class="col-12 col-md-11 col-sm-8 p-1">
             <p class="m-0 p-2">
               Total ($)
             </p>
           </div>
           <div class="col-4 col-md-1 text-end p-0">USD <span class=" m-0 fw-semibold" id="total">Total</span></div>
-        
-      </div>
-    
-
-
-
-          <div class="col-4 col-md-1 text-end p-0">
-            <p class=" m-0 fw-semibold" id="total">Total</p>
-          </div>
-
         </div>
       </section>
-
       <section class="m-4">
         <h3>Forma de pago</h3>
         <p class="d-inline-block" id="payment">No ha seleccionado</p>
         <a data-bs-toggle="modal" data-bs-target="#modal-pago" class="p-2" href="pago">Seleccionar</a>
-        
+
         <div id="modal-pago" class="modal" tabindex="-1">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -178,7 +169,7 @@
                   <div class="row row-cols-1 row-cols-xl-2">
                     <div class="col">
                       <label for="card-number">Número de tarjeta</label>
-                      <input class="form-control" type="text" name="card-number" id="card-number">                 
+                      <input class="form-control" type="text" name="card-number" id="card-number">
                     </div>
                     <div class="col">
                       <label for="sec-number">Código de seg.</label>
@@ -189,12 +180,12 @@
                       <input class="form-control" type="text" name="exp-date" id="exp-date">
                     </div>
                   </div>
-                  
+
                   <div class="row row-cols-1">
                     <div class="col pt-4">
                       <input type="radio" name="payment-radio" id="bank">
                       <label for="bank">Transferencia bancaria</label>
-                      <hr>                 
+                      <hr>
                     </div>
                     <div class="col-12 col-xl-6">
                       <label for="acc-number">Número de cuenta</label>
@@ -210,11 +201,6 @@
             </div>
           </div>
         </div>
-        
-
-        
-        
-        
       </section>
     </div>
   </main>
