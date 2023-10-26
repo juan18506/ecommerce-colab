@@ -31,9 +31,10 @@
           </li>
           <li class="nav-item">
             <div class="dropdown show">
-              <a class="nav-link dropdown-toggle" href="#" role="button" id="profile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="profile" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 Dropdown link
-              </a>            
+              </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="my-profile.html">Perfil</a>
                 <a class="dropdown-item" href="cart.html">Carrito</a>
@@ -54,42 +55,42 @@
       <section class="p-4">
         <h3>Artículos a comprar</h3>
       </section>
-        <section class="container m-4" id="articulos">
-          <div class="row justify-content-center border-bottom border-dark d-none d-lg-flex">
-            <div class="col-lg-2 col-sm-4">
-            </div>
-            <div class="col-lg-3 col-sm-4">
-              <p><strong>Nombre</strong></p>
-            </div>
-            <div class="col-lg-2 col-sm-4">
-              <p><strong>Costo</strong></p> 
-            </div>
-            <div class="col-lg-2 col-sm-5">
-              <p><strong>Cantidad</strong></p>
-            </div>
-            <div class="col-lg-3 col-sm-5">
-              <p><strong>Subtotal</strong></p>
-            </div>
-            <div class="col-lg col-sm-2"></div> 
+      <section class="container m-4" id="articulos">
+        <div class="row justify-content-center border-bottom border-dark d-none d-lg-flex">
+          <div class="col-lg-2 col-sm-4">
           </div>
-          <div class="row border-bottom border-dark pt-2 pb-2 gy-3" id="cart-section">
+          <div class="col-lg-3 col-sm-4">
+            <p><strong>Nombre</strong></p>
           </div>
-        </section>
-        <section class="m-4">
-          <h3 class="pt-2 pb-2">Tipo de envío</h3>       
-          <div>
-            <input type="radio" name="tipo-envio" id="premium">
-            <label for="premium">Premium | 2-5 días (15%)</label>
+          <div class="col-lg-2 col-sm-4">
+            <p><strong>Costo</strong></p>
           </div>
-          <div>
-            <input type="radio" name="tipo-envio" id="express">
-            <label for="express">Express | 5-8 días (7%)</label>
+          <div class="col-lg-2 col-sm-5">
+            <p><strong>Cantidad</strong></p>
           </div>
-          <div>
-            <input type="radio" name="tipo-envio" id="standard">
-            <label for="standard">Standard | 12-15 días (5%)</label>
+          <div class="col-lg-3 col-sm-5">
+            <p><strong>Subtotal</strong></p>
           </div>
-        </section>
+          <div class="col-lg col-sm-2"></div>
+        </div>
+        <div class="row border-bottom border-dark pt-2 pb-2 gy-3" id="cart-section">
+        </div>
+      </section>
+      <section class="m-4">
+        <h3 class="pt-2 pb-2">Tipo de envío</h3>
+        <div>
+          <input type="radio" name="tipo-envio" id="premium">
+          <label for="premium">Premium | 2-5 días (15%)</label>
+        </div>
+        <div>
+          <input type="radio" name="tipo-envio" id="express">
+          <label for="express">Express | 5-8 días (7%)</label>
+        </div>
+        <div>
+          <input type="radio" name="tipo-envio" id="standard">
+          <label for="standard">Standard | 12-15 días (5%)</label>
+        </div>
+      </section>
       <section class="m-4 pt-4 pb-4 border-bottom">
         <h3 class="pb-2">Dirección de envío</h3>
 
@@ -110,9 +111,11 @@
       </section>
       <section class="m-4">
         <div class="card p-0 m-0 border-0">
-          <div class="card-title"><h3>Costos</h3></div>
+          <div class="card-title">
+            <h3>Costos</h3>
+          </div>
         </div>
-        
+
         <div class="row row-cols-2 row-cols-xl-2 ps-4 pe-4 align-items-center border rounded">
           <div class="col-12 col-md-11 col-sm-8 p-1">
             <p class="m-0 p-2">
@@ -121,8 +124,10 @@
               <small class="text-body-secondary d-none d-md-block">Costo unitario del producto por cantidad</small>
             </p>
           </div>
-          <div class="col-4 col-md-1 p-0 text-end"><p class="text-body-secondary m-0" id="precio">Precio</p></div>
-        
+          <div class="col-4 col-md-1 p-0 text-end">
+            <p class="text-body-secondary m-0" id="precio">Precio</p>
+          </div>
+
           <div class="col-12 col-md-11 col-sm-8 p-1">
             <p class="m-0 p-2">
               Costo de envío
@@ -130,20 +135,83 @@
               <small class="text-body-secondary d-none d-md-block">Según el tipo de envío</small>
             </p>
           </div>
-          <div class="col-4 col-md-1 text-end p-0"><p class="text-body-secondary m-0" id="envio">Envío</p></div>      
-        
+          <div class="col-4 col-md-1 text-end p-0">
+            <p class="text-body-secondary m-0" id="envio">Envío</p>
+          </div>
+
           <div class="col-12 col-md-11 col-sm-8 p-1">
             <p class="m-0 p-2">
               Total ($)
             </p>
           </div>
-          <div class="col-4 col-md-1 text-end p-0"><p class=" m-0 fw-semibold" id="total">Total</p></div>
+          <div class="col-4 col-md-1 text-end p-0">
+            <p class=" m-0 fw-semibold" id="total">Total</p>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="m-4">
+        <h3>Forma de pago</h3>
+        <p class="d-inline-block" id="payment">No ha seleccionado</p>
+        <a data-bs-toggle="modal" data-bs-target="#modal-pago" class="p-2" href="pago">Seleccionar</a>
         
-      </div>
-    
+        <div id="modal-pago" class="modal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Forma de pago</h5>
+              </div>
+              <div class="modal-body text-body-secondary">
+                <div class="container-fluid">
+                  <div class="row row-cols-1">
+                    <div class="col">
+                      <input type="radio" name="payment-radio" id="credit">
+                      <label for="credit">Tarjeta de crédito</label>
+                      <hr>
+                    </div>
+                  </div>
 
+                  <div class="row row-cols-1 row-cols-xl-2">
+                    <div class="col">
+                      <label for="card-number">Número de tarjeta</label>
+                      <input class="form-control" type="text" name="card-number" id="card-number">                 
+                    </div>
+                    <div class="col">
+                      <label for="sec-number">Código de seg.</label>
+                      <input class="form-control w-50" type="text" name="sec-number" id="sec-number">
+                    </div>
+                    <div class="col pt-3">
+                      <label for="exp-date">Vencimiento (MM/AA)</label>
+                      <input class="form-control" type="text" name="exp-date" id="exp-date">
+                    </div>
+                  </div>
+                  
+                  <div class="row row-cols-1">
+                    <div class="col pt-4">
+                      <input type="radio" name="payment-radio" id="bank">
+                      <label for="bank">Transferencia bancaria</label>
+                      <hr>                 
+                    </div>
+                    <div class="col-12 col-xl-6">
+                      <label for="acc-number">Número de cuenta</label>
+                      <input type="text" class="form-control">
+                    </div>
 
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
 
+        
+        
+        
       </section>
     </div>
   </main>
@@ -152,8 +220,9 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de 
-        <a class="d-block d-sm-inline text-center" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      <p>Este sitio forma parte de
+        <a class="d-block d-sm-inline text-center" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
+          Programar</a>
       </p>
     </div>
   </footer>
@@ -165,7 +234,7 @@
       <div></div>
     </div>
   </div>
-  
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
