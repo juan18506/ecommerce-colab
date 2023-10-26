@@ -36,15 +36,45 @@ const showCartInfo = (cartInfo) => {
 			</div>
 		`
 	});
+
+	updateCosts();
 };
+
+const updateCosts = () => {
+	const subtotal = document.getElementById('precio');
+	const shipment = document.getElementById('envio');
+	const total = document.getElementById('total');
+
+	let subPrice = 0;
+	document.querySelectorAll('.subtotal').forEach((sub) => {
+		subPrice += sub.parentElement.innerText.includes('UYU') ? +sub.innerText / 40 : +sub.innerText;
+	});
+
+	const premiumShipment = document.getElementById('premium');
+	const expressShipment = document.getElementById('express');
+	const standardShipment = document.getElementById('standard');
+
+	let shipmentCost = 0;
+	if (premiumShipment.checked) {
+		shipmentCost = 0.15;
+	} else if (expressShipment.checked) {
+		shipmentCost = 0.07;
+	} else if (standardShipment.checked) {
+		shipmentCost = 0.05;
+	}
+
+	subtotal.innerText = subPrice;
+	shipment.innerText = Math.round(subPrice * shipmentCost);
+	total.innerText = +subtotal.innerText + +shipment.innerText;
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
 	const cartInfo = await getCartInfo()
 	if (localStorage.getItem('cart') == "[]") {
 		document.getElementById('articulos').innerHTML = '<h1 class="text-center"> El carrito está vacío </h1>'
 	} else {
-	    showCartInfo(cartInfo);
-    } 
+	  showCartInfo(cartInfo);
+  } 
 
 	const quantityInputs = document.querySelectorAll('.cantidad');
 	const costSpans = document.querySelectorAll('.cost');
@@ -65,10 +95,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 			};
 
 			localStorage.setItem('cart', JSON.stringify(localCartInfo));
+			updateCosts();
 		});
 	}
     
-	function removeCartProduct() {
+	function removeCartProduct(event) {
 		let products = JSON.parse(localStorage.getItem('cart'));
 		let productName = event.currentTarget.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
 		products = products.filter(product => product.name !== productName);
@@ -81,4 +112,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 	for (let i = 0; i < deleteButton.length; i++) {
 		deleteButton[i].addEventListener('click', removeCartProduct);
 	};
+
+	document.querySelectorAll('input[type="radio"]').forEach((shipmentType) => {
+		shipmentType.addEventListener('click', updateCosts);
+	});
 });
