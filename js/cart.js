@@ -1,9 +1,9 @@
 const getCartInfo = async () => {
 	if (!localStorage.getItem('cart')) {
 		const { data } = await getJSONData(`${CART_INFO_URL}25801${EXT_TYPE}`);
-    const articles = data.articles;
+		const articles = data.articles;
 		console.log(articles);
-    localStorage.setItem('cart', JSON.stringify(articles));
+		localStorage.setItem('cart', JSON.stringify(articles));
 	}
 
 	return JSON.parse(localStorage.getItem('cart'));
@@ -63,18 +63,39 @@ const updateCosts = () => {
 		shipmentCost = 0.05;
 	}
 
-	subtotal.innerText = subPrice;
+	subtotal.innerText = Math.round(subPrice);
 	shipment.innerText = Math.round(subPrice * shipmentCost);
 	total.innerText = +subtotal.innerText + +shipment.innerText;
 }
+
+const radioInputs = () => {
+	const creditRadio = document.getElementById('credit');
+	const bankRadio = document.getElementById('bank');
+
+	if (creditRadio.checked) {
+		document.getElementById('card-number').disabled = false;
+		document.getElementById('sec-number').disabled = false;
+		document.getElementById('exp-date').disabled = false;
+		document.getElementById('acc-number').disabled = true;
+		document.getElementById('payment').innerText = 'Tarjeta de crédito';
+	} else if (bankRadio.checked) {
+		document.getElementById('card-number').disabled = true;
+		document.getElementById('sec-number').disabled = true;
+		document.getElementById('exp-date').disabled = true;
+		document.getElementById('acc-number').disabled = false;
+		document.getElementById('payment').innerText = 'Transferencia bancaria';
+
+
+	};
+};
 
 document.addEventListener('DOMContentLoaded', async () => {
 	const cartInfo = await getCartInfo()
 	if (localStorage.getItem('cart') == "[]") {
 		document.getElementById('articulos').innerHTML = '<h1 class="text-center"> El carrito está vacío </h1>'
 	} else {
-	  showCartInfo(cartInfo);
-  } 
+		showCartInfo(cartInfo);
+	}
 
 	const quantityInputs = document.querySelectorAll('.cantidad');
 	const costSpans = document.querySelectorAll('.cost');
@@ -84,9 +105,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 		const quantityInput = quantityInputs[i];
 		const costSpan = costSpans[i];
 		const subtotalSpan = subtotalSpans[i];
-		
+
 		quantityInput.addEventListener('change', () => {
-			subtotalSpan.innerHTML = `${ costSpan.innerHTML * quantityInput.value }`;
+			subtotalSpan.innerHTML = `${costSpan.innerHTML * quantityInput.value}`;
 
 			const localCartInfo = JSON.parse(localStorage.getItem('cart'));
 			localCartInfo[i] = {
@@ -98,7 +119,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 			updateCosts();
 		});
 	}
-    
+
 	function removeCartProduct(event) {
 		let products = JSON.parse(localStorage.getItem('cart'));
 		let productName = event.currentTarget.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
@@ -116,4 +137,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 	document.querySelectorAll('input[type="radio"]').forEach((shipmentType) => {
 		shipmentType.addEventListener('click', updateCosts);
 	});
+
+	document.querySelectorAll('input[name="payment-radio"]').forEach((btn) => {
+		btn.addEventListener('change', radioInputs);
+	})
+
 });
