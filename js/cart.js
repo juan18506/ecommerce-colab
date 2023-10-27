@@ -76,6 +76,8 @@ const radioInputs = () => {
 	document.getElementById('exp-date').disabled 		= creditRadio.checked ? false : true;
 	document.getElementById('acc-number').disabled  = creditRadio.checked ? true : false;
 	document.getElementById('payment').innerText    = creditRadio.checked ? 'Tarjeta de crédito' : 'Transferencia bancaria';
+
+	return document.getElementById('payment').innerText;
 };
 
 const checkPaymentValidity = (paymentForm) => {
@@ -101,6 +103,13 @@ const checkPaymentValidity = (paymentForm) => {
 	}
 
 	return isValid;
+}
+
+const handlePayment = (formSubmitted) => {
+	const paymentForm = radioInputs();
+	if (!formSubmitted) return;
+
+	document.getElementById('labelterm').hidden = checkPaymentValidity(paymentForm);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -176,12 +185,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	});
 
 	document.querySelectorAll('.payment').forEach((paymentCheckbox) => {
-		paymentCheckbox.addEventListener('click', () => {
-			radioInputs();
-			if (!formSubmitted) return;
-
-			document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
-		});
+		paymentCheckbox.addEventListener('click', () => handlePayment(formSubmitted));
 	});
 
 	const paymentTextInputs = [
@@ -190,11 +194,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 	];
 
 	paymentTextInputs.forEach((input) => {
-		input.addEventListener('input', () => {
-			radioInputs();
-			if (!formSubmitted) return;
-
-			document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
-		});
+		input.addEventListener('input', () => handlePayment(formSubmitted));
 	});
 });
