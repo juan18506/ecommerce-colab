@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	const form = document.getElementById('form');
 	const payment = document.getElementById('payment');
+	let formSubmitted = false;
 
 	form.addEventListener('submit', (e) => {
 		if (!form.checkValidity()) {
@@ -169,19 +170,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 		}
 
 		form.classList.add('was-validated');
+		formSubmitted = true;
 
-		if (payment.innerText === 'No ha seleccionado') {
-			document.getElementById('labelterm').hidden = false;
-		}
+		document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
 	});
 
 	document.querySelectorAll('.payment').forEach((paymentCheckbox) => {
 		paymentCheckbox.addEventListener('click', () => {
 			radioInputs();
+			if (!formSubmitted) return;
+
 			document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
 		});
 	});
-	
+
 	const paymentTextInputs = [
 		...document.getElementById('credit-card-info').querySelectorAll('input[type="text"]'),
 		...document.getElementById('bank-info').querySelectorAll('input[type="text"]')
@@ -190,6 +192,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 	paymentTextInputs.forEach((input) => {
 		input.addEventListener('input', () => {
 			radioInputs();
+			if (!formSubmitted) return;
+
 			document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
 		});
 	});
