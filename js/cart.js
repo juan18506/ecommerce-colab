@@ -138,6 +138,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 		shipmentType.addEventListener('click', updateCosts);
 	});
 
+	document.getElementById('card-number').disabled = true;
+	document.getElementById('sec-number').disabled = true;
+	document.getElementById('exp-date').disabled = true;
+	document.getElementById('acc-number').disabled = true;
+
 	document.querySelectorAll('input[name="payment-radio"]').forEach((btn) => {
 		btn.addEventListener('change', radioInputs);
 	})
