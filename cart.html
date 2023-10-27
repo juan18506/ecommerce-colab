@@ -90,7 +90,7 @@
           <div class="form-check">
             <input type="radio" name="tipo-envio" class="form-check-input" id="standard" autocomplete="off" required>
             <label for="standard">Standard | 12-15 días (5%)</label>
-            <div class="invalid-feedback">Debe seleccionar una de estas opciones</div>
+            <div class="invalid-feedback">Debe seleccionar una forma de envío</div>
           </div>
         </section>
         <section class="m-4 pt-4 pb-4 border-bottom">
@@ -100,17 +100,17 @@
             <div class="col">
               <label for="calle">Calle</label>
               <input type="text" name="calle" id="calle" class="form-control" required>
-              <div class="invalid-feedback">Debe completar este campo</div>
+              <div class="invalid-feedback">Ingresa una calle</div>
             </div>
             <div class="col">
               <label for="numero">Número</label>
               <input type="text" name="numero" id="numero" class="form-control w-50" required>
-              <div class="invalid-feedback">Debe completar este campo</div>
+              <div class="invalid-feedback">Ingresa un número</div>
             </div>
             <div class="col">
               <label for="esquina">Esquina</label>
               <input type="text" name="esquina" id="esquina" class="form-control" required>
-              <div class="invalid-feedback">Debe completar este campo</div>
+              <div class="invalid-feedback">Ingresa una esquina</div>
             </div>
           </div>
         </section>
@@ -151,9 +151,11 @@
           </div>
         </section>
         <section class="m-4">
+          <hr>
           <h3>Forma de pago</h3>
           <p class="d-inline-block" id="payment">No ha seleccionado</p>
           <a data-bs-toggle="modal" data-bs-target="#modal-pago" class="p-2" href="pago" id="modal">Seleccionar</a>
+          <label id="labelterm" for="modal" hidden style="color: #dd1212">Debe selecccionar una forma de pago.</label>
 
           <div id="modal-pago" class="modal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
@@ -165,13 +167,13 @@
                   <div class="container-fluid">
                     <div class="row row-cols-1">
                       <div class="col">
-                        <input type="radio" name="payment-radio" id="credit" autocomplete="off" required>
+                        <input type="radio" name="payment-radio" id="credit" class="payment" autocomplete="off" required>
                         <label for="credit">Tarjeta de crédito</label>
                         <hr>
                       </div>
                     </div>
 
-                    <div class="row row-cols-1 row-cols-xl-2">
+                    <div class="row row-cols-1 row-cols-xl-2" id="credit-card-info">
                       <div class="col">
                         <label for="card-number">Número de tarjeta</label>
                         <input class="form-control" type="text" name="card-number" id="card-number" required>
@@ -186,9 +188,9 @@
                       </div>
                     </div>
 
-                    <div class="row row-cols-1">
+                    <div class="row row-cols-1" id="bank-info">
                       <div class="col pt-4">
-                        <input type="radio" name="payment-radio" id="bank" autocomplete="off" required>
+                        <input type="radio" class="payment" name="payment-radio" id="bank" autocomplete="off" required>
                         <label for="bank">Transferencia bancaria</label>
                         <hr>
                       </div>
@@ -209,7 +211,7 @@
 
           <div class="row row-cols-1 pt-4">
             <div class="col text-center">
-              <input type="submit" class="btn btn-primary w-75" id="buy" value="Finalizar compra"></input>
+              <input type="submit" class="btn btn-primary w-100 m-0" id="buy" value="Finalizar compra"></input>
             </div>
           </div>
       </form>

@@ -70,22 +70,38 @@ const updateCosts = () => {
 
 const radioInputs = () => {
 	const creditRadio = document.getElementById('credit');
-    const bankRadio = document.getElementById('bank');
 
-	if (creditRadio.checked) {
-		document.getElementById('card-number').disabled = false;
-		document.getElementById('sec-number').disabled = false;
-		document.getElementById('exp-date').disabled = false;
-		document.getElementById('acc-number').disabled = true;
-		document.getElementById('payment').innerText = 'Tarjeta de crédito';
-	} else if (bankRadio.checked) {
-		document.getElementById('card-number').disabled = true;
-		document.getElementById('sec-number').disabled = true;
-		document.getElementById('exp-date').disabled = true;
-		document.getElementById('acc-number').disabled = false;
-		document.getElementById('payment').innerText = 'Transferencia bancaria';
-	};
+	document.getElementById('card-number').disabled = creditRadio.checked ? false : true;
+	document.getElementById('sec-number').disabled  = creditRadio.checked ? false : true;
+	document.getElementById('exp-date').disabled 		= creditRadio.checked ? false : true;
+	document.getElementById('acc-number').disabled  = creditRadio.checked ? true : false;
+	document.getElementById('payment').innerText    = creditRadio.checked ? 'Tarjeta de crédito' : 'Transferencia bancaria';
 };
+
+const checkPaymentValidity = (paymentForm) => {
+	let isValid = true;
+
+	switch (paymentForm) {
+		case 'Tarjeta de crédito':
+			const creditCardInfo = document.getElementById('credit-card-info');
+			creditCardInfo.querySelectorAll('input').forEach((input) => {
+				if (input.value === '') isValid = false;
+			});
+		break;
+
+		case 'Transferencia bancaria':
+			const bankInfo = document.getElementById('bank-info');
+			bankInfo.querySelectorAll('input').forEach((input) => {
+				if (input.value === '') isValid = false;
+			});
+		break;
+	
+		default:
+			isValid = false;
+	}
+
+	return isValid;
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
 	const cartInfo = await getCartInfo()
@@ -105,6 +121,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 		const subtotalSpan = subtotalSpans[i];
 
 		quantityInput.addEventListener('change', () => {
+			if (quantityInput.value < 1) quantityInput.value = 1;
+
 			subtotalSpan.innerHTML = `${costSpan.innerHTML * quantityInput.value}`;
 
 			const localCartInfo = JSON.parse(localStorage.getItem('cart'));
@@ -132,7 +150,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		deleteButton[i].addEventListener('click', removeCartProduct);
 	};
 
-	document.querySelectorAll('input[type="radio"]').forEach((shipmentType) => {
+	document.querySelectorAll('.form-check-input').forEach((shipmentType) => {
 		shipmentType.addEventListener('click', updateCosts);
 	});
 
@@ -141,19 +159,38 @@ document.addEventListener('DOMContentLoaded', async () => {
 	document.getElementById('exp-date').disabled = true;
 	document.getElementById('acc-number').disabled = true;
 
-	document.querySelectorAll('input[name="payment-radio"]').forEach((btn) => {
-		btn.addEventListener('change', radioInputs);
-	});
-
 	const form = document.getElementById('form');
+	const payment = document.getElementById('payment');
 
 	form.addEventListener('submit', (e) => {
 		if (!form.checkValidity()) {
 		  e.preventDefault();
 		  e.stopPropagation();
 		}
-	
+
 		form.classList.add('was-validated');
+
+		if (payment.innerText === 'No ha seleccionado') {
+			document.getElementById('labelterm').hidden = false;
+		}
 	});
 
+	document.querySelectorAll('.payment').forEach((paymentCheckbox) => {
+		paymentCheckbox.addEventListener('click', () => {
+			radioInputs();
+			document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
+		});
+	});
+	
+	const paymentTextInputs = [
+		...document.getElementById('credit-card-info').querySelectorAll('input[type="text"]'),
+		...document.getElementById('bank-info').querySelectorAll('input[type="text"]')
+	];
+
+	paymentTextInputs.forEach((input) => {
+		input.addEventListener('input', () => {
+			radioInputs();
+			document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
+		});
+	});
 });
