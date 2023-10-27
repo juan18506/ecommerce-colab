@@ -148,7 +148,7 @@
       <section class="m-4">
         <h3>Forma de pago</h3>
         <p class="d-inline-block" id="payment">No ha seleccionado</p>
-        <a data-bs-toggle="modal" data-bs-target="#modal-pago" class="p-2" href="pago">Seleccionar</a>
+        <a data-bs-toggle="modal" data-bs-target="#modal-pago" class="p-2" href="pago" id="modal">Seleccionar</a>
 
         <div id="modal-pago" class="modal" tabindex="-1">
           <div class="modal-dialog modal-dialog-centered">
@@ -199,6 +199,12 @@
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 pt-4">
+          <div class="col text-center">
+            <button type="button" class="btn btn-primary w-75" id="buy">Finalizar compra</button>
           </div>
         </div>
       </section>
