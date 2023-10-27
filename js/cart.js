@@ -70,7 +70,7 @@ const updateCosts = () => {
 
 const radioInputs = () => {
 	const creditRadio = document.getElementById('credit');
-	const bankRadio = document.getElementById('bank');
+    const bankRadio = document.getElementById('bank');
 
 	if (creditRadio.checked) {
 		document.getElementById('card-number').disabled = false;
@@ -84,8 +84,6 @@ const radioInputs = () => {
 		document.getElementById('exp-date').disabled = true;
 		document.getElementById('acc-number').disabled = false;
 		document.getElementById('payment').innerText = 'Transferencia bancaria';
-
-
 	};
 };
 
@@ -145,6 +143,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	document.querySelectorAll('input[name="payment-radio"]').forEach((btn) => {
 		btn.addEventListener('change', radioInputs);
-	})
+	});
+
+	const form = document.getElementById('form');
+
+	form.addEventListener('submit', (e) => {
+		if (!form.checkValidity()) {
+		  e.preventDefault();
+		  e.stopPropagation();
+		}
+	
+		form.classList.add('was-validated');
+	});
 
 });
