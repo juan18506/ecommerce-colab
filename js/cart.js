@@ -76,6 +76,8 @@ const radioInputs = () => {
 	document.getElementById('exp-date').disabled    = creditRadio.checked ? false : true;
 	document.getElementById('acc-number').disabled  = creditRadio.checked ? true : false;
 	document.getElementById('payment').innerText    = creditRadio.checked ? 'Tarjeta de crédito' : 'Transferencia bancaria';
+
+	return document.getElementById('payment').innerText;
 };
 
 const checkPaymentValidity = (paymentForm) => {
@@ -101,6 +103,13 @@ const checkPaymentValidity = (paymentForm) => {
 	}
 
 	return isValid;
+}
+
+const handlePayment = (formSubmitted) => {
+	const paymentForm = radioInputs();
+	if (!formSubmitted) return;
+
+	document.getElementById('labelterm').hidden = checkPaymentValidity(paymentForm);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -161,6 +170,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	const form = document.getElementById('form');
 	const payment = document.getElementById('payment');
+	let formSubmitted = false;
 
 	form.addEventListener('submit', (e) => {
 		if (!form.checkValidity()) {
@@ -169,28 +179,21 @@ document.addEventListener('DOMContentLoaded', async () => {
 		}
 
 		form.classList.add('was-validated');
+		formSubmitted = true;
 
-		if (payment.innerText === 'No ha seleccionado') {
-			document.getElementById('labelterm').hidden = false;
-		}
+		document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
 	});
 
 	document.querySelectorAll('.payment').forEach((paymentCheckbox) => {
-		paymentCheckbox.addEventListener('click', () => {
-			radioInputs();
-			document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
-		});
+		paymentCheckbox.addEventListener('click', () => handlePayment(formSubmitted));
 	});
-	
+
 	const paymentTextInputs = [
 		...document.getElementById('credit-card-info').querySelectorAll('input[type="text"]'),
 		...document.getElementById('bank-info').querySelectorAll('input[type="text"]')
 	];
 
 	paymentTextInputs.forEach((input) => {
-		input.addEventListener('input', () => {
-			radioInputs();
-			document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
-		});
+		input.addEventListener('input', () => handlePayment(formSubmitted));
 	});
 });
