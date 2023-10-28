@@ -73,7 +73,7 @@ const radioInputs = () => {
 
 	document.getElementById('card-number').disabled = creditRadio.checked ? false : true;
 	document.getElementById('sec-number').disabled  = creditRadio.checked ? false : true;
-	document.getElementById('exp-date').disabled 		= creditRadio.checked ? false : true;
+	document.getElementById('exp-date').disabled    = creditRadio.checked ? false : true;
 	document.getElementById('acc-number').disabled  = creditRadio.checked ? true : false;
 	document.getElementById('payment').innerText    = creditRadio.checked ? 'Tarjeta de crédito' : 'Transferencia bancaria';
 
