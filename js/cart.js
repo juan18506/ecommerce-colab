@@ -174,14 +174,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	form.addEventListener('submit', (e) => {
 		if (!form.checkValidity()) {
-		  e.preventDefault();
+			e.preventDefault();
 		  e.stopPropagation();
+		} else {
+			document.getElementById('alert').classList.add('show');
 		}
 
 		form.classList.add('was-validated');
 		formSubmitted = true;
 
 		document.getElementById('labelterm').hidden = checkPaymentValidity(payment.innerText);
+
 	});
 
 	document.querySelectorAll('.payment').forEach((paymentCheckbox) => {
