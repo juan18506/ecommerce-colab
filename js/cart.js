@@ -163,11 +163,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 		shipmentType.addEventListener('click', updateCosts);
 	});
 
-	document.getElementById('card-number').disabled = true;
-	document.getElementById('sec-number').disabled = true;
-	document.getElementById('exp-date').disabled = true;
-	document.getElementById('acc-number').disabled = true;
-
 	const form = document.getElementById('form');
 	const payment = document.getElementById('payment');
 	let formSubmitted = false;
