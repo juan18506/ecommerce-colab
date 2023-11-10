@@ -70,11 +70,11 @@
             <h2 class="pb-5">Perfil</h2>
           </div>
           <div class="col-2">
-            <img width="100" src="img/img_perfil.png" alt="Imagen de perfil">
+            <img width="100" id="profileImage" src="img/img_perfil.png" alt="Imagen de perfil">
           </div>
         </div>
         <hr>
-        <form action="#">
+        <form action="#" class="needs-validation" id="formProfile" novalidate>
           <div class="row row-cols-1 row-cols-xl-2 gy-4 pb-3">
             <div class="col">
               <label for="firstName" class="form-label">Primer nombre*</label>
@@ -93,16 +93,16 @@
               <input type="text" name="secondLastName" id="secondLastName" class="form-control">
             </div>
             <div class="col">
-              <label for="mail" class="form-label">E-mail</label>
+              <label for="mail" class="form-label">E-mail*</label>
               <input type="text" name="mail" id="mail" class="form-control">
             </div>
             <div class="col">
               <label for="profileImg" class="form-label">Imagen de perfil</label>
-              <input type="file" name="profileImg" id="profileImg" class="form-control">
+              <input type="file" name="profileImg" id="profileImg" class="form-control" accept="image/*">
             </div>
             <div class="col">
-              <label for="contactPhone" class="form-label">Teléfono de contacto*</label>
-              <input type="text" name="contactPhone" id="contactPhone" class="form-control" required>
+              <label for="contactPhone" class="form-label">Teléfono de contacto</label>
+              <input type="text" name="contactPhone" id="contactPhone" class="form-control">
             </div>
           </div>
           <hr>
