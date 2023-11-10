@@ -46,9 +46,10 @@
           </li>
           <li class="nav-item">
             <div class="dropdown show">
-              <a class="nav-link dropdown-toggle" href="#" role="button" id="profile" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" id="profile" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 Dropdown link
-              </a>            
+              </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="my-profile.html">Perfil</a>
                 <a class="dropdown-item" href="cart.html">Carrito</a>
@@ -62,10 +63,56 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <div class="container w-50">
+      <section class="p-4">
+        <div class="row row-cols">
+          <div class="col-10">
+            <h2 class="pb-5">Perfil</h2>
+          </div>
+          <div class="col-2">
+            <img width="100" src="img/img_perfil.png" alt="Imagen de perfil">
+          </div>
+        </div>
+        <hr>
+        <form action="#">
+          <div class="row row-cols-1 row-cols-xl-2 gy-4 pb-3">
+            <div class="col">
+              <label for="firstName" class="form-label">Primer nombre*</label>
+              <input type="text" name="firstName" id="firstName" class="form-control" required>
+            </div>
+            <div class="col">
+              <label for="secondName" class="form-label">Segundo nombre</label>
+              <input type="text" name="secondName" id="secondName" class="form-control">
+            </div>
+            <div class="col">
+              <label for="lastName" class="form-label">Primer apellido*</label>
+              <input type="text" name="lastName" id="lastName" class="form-control" required>
+            </div>
+            <div class="col">
+              <label for="secondLastName" class="form-label">Segundo apellido</label>
+              <input type="text" name="secondLastName" id="secondLastName" class="form-control">
+            </div>
+            <div class="col">
+              <label for="mail" class="form-label">E-mail</label>
+              <input type="text" name="mail" id="mail" class="form-control">
+            </div>
+            <div class="col">
+              <label for="profileImg" class="form-label">Imagen de perfil</label>
+              <input type="file" name="profileImg" id="profileImg" class="form-control">
+            </div>
+            <div class="col">
+              <label for="contactPhone" class="form-label">Teléfono de contacto*</label>
+              <input type="text" name="contactPhone" id="contactPhone" class="form-control" required>
+            </div>
+          </div>
+          <hr>
+          <div class="row row-cols">
+            <div class="col-3">
+              <input type="submit" class="btn btn-primary m-0" id="saveChanges" value="Guardar cambios"></input>
+            </div>
+          </div>
+        </form>
+      </section>
     </div>
   </main>
   <footer class="text-muted">
@@ -73,12 +120,13 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de 
-        <a class="d-block d-sm-inline text-center" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      <p>Este sitio forma parte de
+        <a class="d-block d-sm-inline text-center" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
+          Programar</a>
       </p>
     </div>
   </footer>
-  
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
