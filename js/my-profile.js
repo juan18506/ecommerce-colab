@@ -2,11 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const user = localStorage.getItem('user');
   document.getElementById('mail').value = user;
 
-  let profile = localStorage.getItem('profile');
+  const profile = localStorage.getItem('profile') ? JSON.parse(localStorage.getItem('profile')) : null;
   const profileImageSrc = localStorage.getItem('profileImg') ?? 'img/img_perfil.png';
 
   if (!!profile) {
-    profile = JSON.parse(profile);
     document.getElementById('firstName').value = profile.firstName;
     document.getElementById('secondName').value = profile.secondName;
     document.getElementById('lastName').value = profile.lastName;
