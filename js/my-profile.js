@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reader.addEventListener('load', () => {
       localStorage.setItem('profileImg', reader.result);
+      document.getElementById('profileImage').src = reader.result;
     });
 
     if (!!profileImage) reader.readAsDataURL(profileImage);
