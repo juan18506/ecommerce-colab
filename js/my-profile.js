@@ -35,15 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		form.classList.add('was-validated');
 	});
 
+  const reader = new FileReader();
+  reader.addEventListener('load', () => {
+    localStorage.setItem('profileImg', reader.result);
+    document.getElementById('profileImage').src = reader.result;
+  });
+  
   const profileImg = document.getElementById('profileImg');
   profileImg.addEventListener('change', () => {
     const profileImage = profileImg.files[0];
-    const reader = new FileReader();
-
-    reader.addEventListener('load', () => {
-      localStorage.setItem('profileImg', reader.result);
-      document.getElementById('profileImage').src = reader.result;
-    });
 
     if (!!profileImage) reader.readAsDataURL(profileImage);
   });
