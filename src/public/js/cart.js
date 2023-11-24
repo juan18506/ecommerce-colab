@@ -1,6 +1,6 @@
 const getCartInfo = async () => {
 	if (!localStorage.getItem('cart')) {
-		const { data } = await getJSONData(`${CART_INFO_URL}25801${EXT_TYPE}`);
+		const { data } = await getJSONData(`${CART_INFO_URL}`);
 		const articles = data.articles;
 		console.log(articles);
 		localStorage.setItem('cart', JSON.stringify(articles));
