@@ -25,6 +25,16 @@ const getCartInfo = async (accessToken) => {
 	return cartInfo;
 };
 
+const getProductByName = async (productName, accessToken) => {
+	const res = await fetch(`${CART_INFO_URL}/${productName}`, {
+		method: 'GET',
+		headers: { 'access-token': accessToken }
+	});
+
+	const product = await res.json();
+	return product;
+}
+
 const showCartInfo = (cartInfo) => {
 	const cartSection = document.getElementById('cart-section');
 
@@ -153,13 +163,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 			if (quantityInput.value < 1) quantityInput.value = 1;
 
 			subtotalSpan.innerHTML = `${costSpan.innerHTML * quantityInput.value}`;
-			const getProductByNameRes = await fetch(`${CART_INFO_URL}/${nameSpan.innerText}`, {
-				method: 'GET',
-				headers: { 'access-token': accessToken }
-			});
-			const { id } = await getProductByNameRes.json();
 
-			const updateCountRes = await fetch(`${CART_INFO_URL}/${id}`, {
+			const productName = nameSpan.innerText;
+			const { id } = await getProductByName(productName, accessToken);
+
+			const updateCountResponse = await fetch(`${CART_INFO_URL}/${id}`, {
 				method: 'PATCH',
 				headers: { 
 					'Content-Type': 'application/json',
@@ -175,11 +183,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 		});
 	}
 
-	function removeCartProduct(event) {
-		let products = JSON.parse(localStorage.getItem('cart'));
-		let productName = event.currentTarget.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
-		products = products.filter(product => product.name !== productName);
-		localStorage.setItem('cart', JSON.stringify(products));
+	const removeCartProduct = async (event) => {
+		const productName = event.currentTarget.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+		const { id } = await getProductByName(productName, accessToken);
+
+		const removeProductResponse = await fetch(`${CART_INFO_URL}/${id}`, {
+			method: 'DELETE',
+			headers: { 'access-token': accessToken }
+		});
+
 		location.reload();
 	};
 
