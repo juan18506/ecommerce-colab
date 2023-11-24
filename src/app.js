@@ -6,7 +6,6 @@ const port = 3000;
 const SECRET_KEY = 'contraseña';
 
 const loginRouter = require('./routes/loginRouter');
-const userCartRouter = require('./routes/userCartRouter');
 const catsRouter = require('./routes/catsRouter');
 const sellRouter = require('./routes/sellRouter');
 const catsProductsRouter = require('./routes/catsProductsRouter');
@@ -18,7 +17,6 @@ app.use(express.json());
 app.use(express.static('src/public'));
 
 app.use('/login', loginRouter);
-app.use('/api/user_cart', userCartRouter);
 app.use('/api/cats', catsRouter);
 app.use('/api/sell', sellRouter);
 app.use('/api/cats_products', catsProductsRouter);

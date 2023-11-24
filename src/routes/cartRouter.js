@@ -4,6 +4,7 @@ const cart = express.Router();
 const cartController = require('../controllers/cartController');
 
 cart.get('/', cartController.getCart);
+cart.get('/:name', cartController.getProductByName);
 cart.post('/', cartController.createProduct);
 cart.patch('/:id', cartController.updateProductCount);
 cart.delete('/:id', cartController.deleteCartProduct);

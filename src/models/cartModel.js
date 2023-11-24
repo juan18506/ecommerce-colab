@@ -47,6 +47,26 @@ const getProductById = async (id) => {
   return false;
 };
 
+const getProductByName = async (name) => {
+  let conn;
+  
+  try {
+    conn = await pool.getConnection();
+    const rows = await conn.query(
+      `SELECT * FROM cart WHERE name=?`,
+      [name]
+    );
+
+    return rows[0];
+  } catch (error) {
+    console.log(error);
+  } finally {
+    if (conn) conn.release(); //release to pool
+  }
+
+  return false;
+};
+
 const createProduct = async (user) => {
   let conn;
 
@@ -107,6 +127,7 @@ const deleteCartProduct = async (id) => {
 module.exports = {
   getCart,
   getProductById,
+  getProductByName,
   createProduct,
   deleteCartProduct,
   updateProductCount,

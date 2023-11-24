@@ -1,12 +1,28 @@
-const getCartInfo = async () => {
-	if (!localStorage.getItem('cart')) {
-		const { data } = await getJSONData(`${CART_INFO_URL}`);
-		const articles = data.articles;
-		console.log(articles);
-		localStorage.setItem('cart', JSON.stringify(articles));
-	}
+const authenticate = async () => {
+	const res = await fetch(LOGIN_URL, {
+		method: 'POST',
+		headers: { 
+			'Content-Type': 'application/json',
+			'charset': 'utf-8',
+		},
+		body: JSON.stringify({
+			username: 'admin',
+			password: 'admin'
+		}),
+	});
 
-	return JSON.parse(localStorage.getItem('cart'));
+	const { token } = await res.json();
+	return token;
+}
+
+const getCartInfo = async (accessToken) => {
+	const res = await fetch(`${CART_INFO_URL}`, {
+		method: 'GET',
+		headers: { 'access-token': accessToken }
+	});
+
+	const cartInfo = await res.json()
+	return cartInfo;
 };
 
 const showCartInfo = (cartInfo) => {
@@ -20,7 +36,7 @@ const showCartInfo = (cartInfo) => {
 				<img class="w-75" src="${image}" alt="${name}">
 			</div>
 			<div class="col-lg-3 col-4 border-bottom d-flex align-items-center">
-				<p>${name}</p>
+				<p class="productName">${name}</p>
 			</div>
 			<div class="col-lg-2 col-4 border-bottom d-flex align-items-center">
 				<p>${currency}<span class="cost">${unitCost}</span></p>
@@ -113,8 +129,10 @@ const handlePayment = (formSubmitted) => {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-	const cartInfo = await getCartInfo()
-	if (localStorage.getItem('cart') == "[]") {
+	const accessToken = await authenticate();
+
+	const cartInfo = await getCartInfo(accessToken);
+	if (cartInfo === "[]") {
 		document.getElementById('articulos').innerHTML = '<h1 class="text-center"> El carrito está vacío </h1>'
 	} else {
 		showCartInfo(cartInfo);
@@ -123,24 +141,36 @@ document.addEventListener('DOMContentLoaded', async () => {
 	const quantityInputs = document.querySelectorAll('.cantidad');
 	const costSpans = document.querySelectorAll('.cost');
 	const subtotalSpans = document.querySelectorAll('.subtotal');
+	const nameSpans = document.querySelectorAll('.productName');
 
 	for (let i = 0; i < quantityInputs.length; i++) {
 		const quantityInput = quantityInputs[i];
 		const costSpan = costSpans[i];
 		const subtotalSpan = subtotalSpans[i];
+		const nameSpan = nameSpans[i];
 
-		quantityInput.addEventListener('change', () => {
+		quantityInput.addEventListener('change', async () => {
 			if (quantityInput.value < 1) quantityInput.value = 1;
 
 			subtotalSpan.innerHTML = `${costSpan.innerHTML * quantityInput.value}`;
+			const getProductByNameRes = await fetch(`${CART_INFO_URL}/${nameSpan.innerText}`, {
+				method: 'GET',
+				headers: { 'access-token': accessToken }
+			});
+			const { id } = await getProductByNameRes.json();
 
-			const localCartInfo = JSON.parse(localStorage.getItem('cart'));
-			localCartInfo[i] = {
-				...localCartInfo[i],
-				count: quantityInput.value,
-			};
-
-			localStorage.setItem('cart', JSON.stringify(localCartInfo));
+			const updateCountRes = await fetch(`${CART_INFO_URL}/${id}`, {
+				method: 'PATCH',
+				headers: { 
+					'Content-Type': 'application/json',
+					'charset': 'utf-8',
+					'access-token': accessToken,
+				},
+				body: JSON.stringify({
+					count: quantityInput.value,
+				}),
+			})
+			
 			updateCosts();
 		});
 	}

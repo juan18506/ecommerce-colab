@@ -6,6 +6,12 @@ const getCart = async (req, res) => {
   res.json(cart);
 };
 
+const getProductByName = async (req, res) => {
+  const productName = req.params.name;
+  const cart = await cartModel.getProductByName(productName);
+  res.json(cart);
+};
+
 const createProduct = async (req, res) => {
   const createdProcuct = await cartModel.createProduct(req.body);
 
@@ -61,6 +67,7 @@ const getCartBuy = (req, res) => {
 
 module.exports = {
   getCart,
+  getProductByName,
   createProduct,
   updateProductCount,
   deleteCartProduct,
