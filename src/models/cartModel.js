@@ -29,6 +29,7 @@ const getCart = async () => {
 
 const getProductById = async (id) => {
   let conn;
+  
   try {
     conn = await pool.getConnection();
     const rows = await conn.query(
@@ -42,16 +43,18 @@ const getProductById = async (id) => {
   } finally {
     if (conn) conn.release(); //release to pool
   }
+
   return false;
 };
 
-const createUser = async (user) => {
+const createProduct = async (user) => {
   let conn;
+
   try {
     conn = await pool.getConnection();
     const response = await conn.query(
-      `INSERT INTO people(name, lastname, email) VALUE(?, ?, ?)`,
-      [user.name, user.lastname, user.email]
+      `INSERT INTO cart(id, count, currency, image, name, unitCost) VALUE(?, ?, ?, ?, ?, ?)`,
+      [user.id, user.count, user.currency, user.image, user.name, user.unitCost]
     );
 
     return { id: parseInt(response.insertId), ...user };
@@ -60,6 +63,7 @@ const createUser = async (user) => {
   } finally {
     if (conn) conn.release(); //release to pool
   }
+
   return false;
 };
 
@@ -103,7 +107,7 @@ const deleteCartProduct = async (id) => {
 module.exports = {
   getCart,
   getProductById,
-  createUser,
+  createProduct,
   deleteCartProduct,
   updateProductCount,
 };

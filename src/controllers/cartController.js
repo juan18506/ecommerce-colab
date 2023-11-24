@@ -6,6 +6,17 @@ const getCart = async (req, res) => {
   res.json(cart);
 };
 
+const createProduct = async (req, res) => {
+  const createdProcuct = await cartModel.createProduct(req.body);
+
+  if (createdProcuct) {
+    res.json(createdProcuct);
+  } else {
+    res.status(500).json({ message: "Se rompió el servidor" });
+  }
+
+};
+
 const updateProductCount = async (req, res) => {
   const id = Number(req.params.id);
   const product = await cartModel.getProductById(id);
@@ -50,6 +61,7 @@ const getCartBuy = (req, res) => {
 
 module.exports = {
   getCart,
+  createProduct,
   updateProductCount,
   deleteCartProduct,
   getCartBuy,
