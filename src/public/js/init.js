@@ -11,6 +11,23 @@ const EXT_TYPE = '.json';
 const showSpinner = () => document.getElementById('spinner-wrapper').style.display = 'block';
 const hideSpinner = () => document.getElementById('spinner-wrapper').style.display = 'none';
 
+const authenticate = async () => {
+	const res = await fetch(LOGIN_URL, {
+		method: 'POST',
+		headers: { 
+			'Content-Type': 'application/json',
+			'charset': 'utf-8',
+		},
+		body: JSON.stringify({
+			username: 'admin',
+			password: 'admin'
+		}),
+	});
+
+	const { token } = await res.json();
+	return token;
+}
+
 const getJSONData = (url) => {
   const result = {};
   showSpinner();

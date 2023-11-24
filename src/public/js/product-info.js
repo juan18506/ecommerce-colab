@@ -165,6 +165,8 @@ document.getElementById('SendComm').addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const accessToken = await authenticate();
+
   const productInfo = await getProductInfo()
   showProductInfo(productInfo);
 
@@ -174,21 +176,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   const relatedProducts = await getRelatedProducts()
   showRelatedProducts(relatedProducts);
 
-  document.getElementById('addCart').addEventListener('click', (event) => {
+  document.getElementById('addCart').addEventListener('click', async (event) => {
     event.currentTarget.disabled = true;
 
-    const localCartInfo = localStorage.getItem('cart');
-    const cartInfo = localCartInfo ? JSON.parse(localStorage.getItem('cart')) : [];
-
-    cartInfo.push({
-      count: 1,
-      currency: productInfo.currency,
-      id: productInfo.id,
-      image: productInfo.images[0],
-      name: productInfo.name,
-      unitCost: productInfo.cost,
-    });
-
-    localStorage.setItem('cart', JSON.stringify(cartInfo));
+    const addToCartResponse = await fetch(CART_INFO_URL, {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'charset': 'utf-8',
+        'access-token': accessToken,
+      },
+      body: JSON.stringify({
+        count: 1,
+        currency: productInfo.currency,
+        id: productInfo.id,
+        image: productInfo.images[0],
+        name: productInfo.name,
+        unitCost: productInfo.cost,
+      }),
+    })
   });
 });

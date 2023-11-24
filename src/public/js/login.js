@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     regNom.value = regNom.defaultValue;
     regContra.value = regContra.defaultValue;
   });
-  btnAcc.addEventListener('click', () => {
+  btnAcc.addEventListener('click', async () => {
     if (!accEmail.value || !accContra.value) {
       msjError.innerHTML = '<p>Ingrese usuario y contraseña</p>';
       showAlertError();

@@ -1,20 +1,3 @@
-const authenticate = async () => {
-	const res = await fetch(LOGIN_URL, {
-		method: 'POST',
-		headers: { 
-			'Content-Type': 'application/json',
-			'charset': 'utf-8',
-		},
-		body: JSON.stringify({
-			username: 'admin',
-			password: 'admin'
-		}),
-	});
-
-	const { token } = await res.json();
-	return token;
-}
-
 const getCartInfo = async (accessToken) => {
 	const res = await fetch(`${CART_INFO_URL}`, {
 		method: 'GET',
