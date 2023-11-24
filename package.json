@@ -1,14 +1,14 @@
 {
-  "name": "taller-grupal-crud",
+  "name": "ecommerce-jap",
   "version": "1.0.0",
-  "description": "Taller grupal de repaso",
+  "description": "Proyecto grupal ecommerce de Jovenes a Programar",
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Subgrupo 2",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
