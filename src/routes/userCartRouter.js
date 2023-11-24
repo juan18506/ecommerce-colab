@@ -6,7 +6,7 @@ const userCart = express.Router();
 
 const userCartController = require('../controllers/userCartController');
 
-userCart.get('/', userCartController.getUsers);
+userCart.get('/', userCartController.getCart);
 // userCart.get('/:id', userCartController.getUserById);
 // userCart.post('/', userCartController.createUser);
 // userCart.put('/:id', userCartController.updateUser);

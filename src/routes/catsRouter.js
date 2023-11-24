@@ -1,8 +1,8 @@
 const express = require('express');
-const userCart = express.Router();
+const cats = express.Router();
 
 const catsController = require('../controllers/catsController');
 
-userCart.get('/', catsController.getCats);
+cats.get('/', catsController.getCats);
 
-module.exports = userCart;
+module.exports = cats;

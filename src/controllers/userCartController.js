@@ -1,6 +1,6 @@
 const userCartJson = require('../json/user_cart/25801.json');
 
-const getUsers = (req, res) => {
+const getCart = (req, res) => {
   res.json(userCartJson);
 };
 
@@ -49,7 +49,7 @@ const getUsers = (req, res) => {
 // };
 
 module.exports = {
-  getUsers,
+  getCart,
   // getUserById,
   // updateUser,
   // createUser,
