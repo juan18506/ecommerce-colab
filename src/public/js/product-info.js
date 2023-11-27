@@ -151,15 +151,25 @@ const getDate = () => {
   }
 }
 
-document.getElementById('SendComm').addEventListener('click', () => {
+document.getElementById('SendComm').addEventListener('click', async () => {
   const { year, month, day, hour, minutes, seconds } = getDate();
 
   const comment = {
+    product: localStorage.getItem('productID'),
     user: localStorage.getItem('user').split('@')[0],
     dateTime: `${ year }-${ month }-${ day } ${ hour }:${ minutes }:${ seconds }`,
     description: document.getElementById('comm').value,
     score: document.getElementById('stars').value,
   };
+
+  const res = await fetch(`${PRODUCT_INFO_COMMENTS_URL}${comment.product}${EXT_TYPE}`, {
+    method: 'POST',
+    headers: { 
+      'Content-Type': 'application/json', 
+      'charset': 'utf-8',
+    },
+    body: JSON.stringify(comment),
+  });
 
   addCommentToHtml(comment);
 });
